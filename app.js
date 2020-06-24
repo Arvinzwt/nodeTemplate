@@ -4,43 +4,40 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var router = require('./controller/controller');
 
 var app = express();
 
-// view engine setup
+//查看引擎设置
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// 跨域设置
 app.use(cors({
     "Access-Control-Allow-Origin": '*',
     "Access-Control-Allow-Methods": "DELETE,PUT,POST,GET,OPTIONS",
     "Access-Control-Allow-Credentials": "true"
 }));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(router);
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
+//捕获404并转发到错误处理程序
 app.use(function (req, res, next) {
     next(createError(404));
 });
 
-// error handler
+//错误处理程序
 app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
+    //设置本地变量，仅在开发中提供错误
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
+    //呈现错误页面
     res.status(err.status || 500);
     res.render('error');
 });
