@@ -1,6 +1,9 @@
 {
-	"name": "SkyRTC-demo",
+	"name": "demo",
 	"description": "A simple SkyRTC demo",
+    "scripts": {
+        "start": "node server.js"
+    },
 	"dependencies": {
 		"ws": ">= 0.0.0",
 		"node-uuid": ">= 1.4.1",
