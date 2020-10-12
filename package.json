@@ -19,9 +19,9 @@
     "homepage": "https://github.com/Arvinzwt/nodeTemplate#readme",
     "dependencies": {
         "express": "^4.17.1",
-        "skyrtc": ">= 0.0.0",
+        "nodemon": "^2.0.4",
+        "skyrtc": "0.0.2",
         "uuid": "^8.3.1",
-        "ws": ">= 0.0.0",
-        "nodemon": "^2.0.4"
+        "ws": "^7.3.1"
     }
 }
