@@ -1,20 +1,16 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-const path = require('path');
-const fs = require('fs');
 
 class HomeController extends Controller {
     async index() {
-        const {ctx} = this;
-        ctx.response.type = 'html';
-        ctx.body = fs.readFileSync(path.resolve(__dirname, '../public/dist/index.html'));
+        this.ctx.body = 'hi, egg';
     }
 
-    async teacherManage(){
-        const {ctx} = this;
-        ctx.response.type = 'html';
-        ctx.body = fs.readFileSync(path.resolve(__dirname, '../public/dist/teachingManage/teacherManage/index.html'));
+    async home() {
+        const list = await this.ctx.service.home.home(10);
+        console.log(list)
+        await this.ctx.render('home.tpl', {list});
     }
 }
 

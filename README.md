@@ -1,6 +1,6 @@
-# nodeTemplate
+# node
 
-a test project
+
 
 ## QuickStart
 

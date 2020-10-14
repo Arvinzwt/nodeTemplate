@@ -1,14 +1,16 @@
 {
-  "name": "node-template",
+  "name": "node",
   "version": "1.0.0",
-  "description": "a test project",
+  "description": "",
   "private": true,
   "egg": {
     "declarations": true
   },
   "dependencies": {
     "egg": "^2.15.1",
-    "egg-scripts": "^2.11.0"
+    "egg-scripts": "^2.11.0",
+    "egg-view-nunjucks": "^2.2.0",
+    "moment": "^2.29.1"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -23,8 +25,8 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-nodeTemplate",
-    "stop": "egg-scripts stop --title=egg-server-nodeTemplate",
+    "start": "egg-scripts start --daemon --title=egg-server-node",
+    "stop": "egg-scripts stop --title=egg-server-node",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
