@@ -6,21 +6,10 @@
  * @param {Egg.EggAppInfo} appInfo app info
  */
 module.exports = appInfo => {
-    /**
-     * built-in config
-     * @type {Egg.EggAppConfig}
-     **/
-    const config = exports = {};
+    return {
+        keys : appInfo.name + '_1602728128768_8544',
 
-    // use for cookie sign key, should change to your own and keep security
-    config.keys = appInfo.name + '_1602728128768_8544';
-
-    // add your middleware config here
-    config.middleware = [];
-
-    // add your user config here
-    const userConfig = {
-        // myAppName: 'egg',
+        middleware:[],
 
         mysql: {
             // 单数据库信息配置
@@ -43,7 +32,7 @@ module.exports = appInfo => {
         },
 
         // 跨域设置
-        security:{
+        security: {
             // srf: {
             //     enable: false,
             //     ignoreJSON: true
@@ -53,11 +42,11 @@ module.exports = appInfo => {
         cors: {
             origin: '*',
             allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
-        }
-    };
+        },
 
-    return {
-        ...config,
-        ...userConfig,
+        // jwt登录
+        jwt: {
+            secret: '_1602728128768_8544',
+        }
     };
 };

@@ -4,9 +4,7 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
     async index() {
-        const {ctx} = this;
-
-        ctx.body = await ctx.service.user.find(1);
+        this.ctx.body = `你好世界`
     }
 }
 
