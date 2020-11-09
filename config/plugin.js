@@ -21,5 +21,11 @@ module.exports = {
     jwt: {
         enable: true,
         package: "egg-jwt"
+    },
+
+    // 模板渲染
+    nunjucks : {
+        enable: true,
+        package: 'egg-view-nunjucks'
     }
 };

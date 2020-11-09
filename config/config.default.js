@@ -7,9 +7,9 @@
  */
 module.exports = appInfo => {
     return {
-        keys : appInfo.name + '_1602728128768_8544',
+        keys: appInfo.name + '_1602728128768_8544',
 
-        middleware:[],
+        middleware: [],
 
         mysql: {
             // 单数据库信息配置
@@ -47,6 +47,14 @@ module.exports = appInfo => {
         // jwt登录
         jwt: {
             secret: '_1602728128768_8544',
+        },
+
+        // 模板渲染
+        view: {
+            defaultViewEngine: 'nunjucks',
+            mapping: {
+                '.html': 'nunjucks',
+            },
         }
     };
 };
