@@ -1,0 +1,159 @@
+$color-brand: #3391FF; //品牌色
+$color-success: #67C23A; //成功
+$color-warning: #FF8E54; //警告
+$color-danger: #F56C6C; //危险
+$color-info: #F5F5F6; //提示
+$color-white: white; //提示
+$text-color-main: #303133; //主要文字
+$text-color-regular: #606266; //常规文字
+$text-color-secondary: #909399; //次要文字
+$text-color-placeholder: #BDBDBD; //占位文字
+
+body {
+    color: $text-color-regular;
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, SimSun, sans-serif;
+}
+
+.iconfont {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: inherit;
+}
+
+.wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*nav*/
+.nav {
+    background: $color-brand;
+
+    .wrap {
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-item {
+        color: $color-white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    .nav-left .nav-item {
+        margin-right: 30px;
+    }
+
+    .nav-right .nav-item {
+        margin-left: 16px;
+
+        .iconfont {
+            font-size: 18px;
+        }
+    }
+}
+
+
+/*header*/
+.header {
+    background: $color-info;
+
+    .header-search {
+        padding-top: 23px;
+        display: flex;
+        align-items: center;
+
+        .header-logo {
+            display: block;
+            width: 147px;
+            height: 46px;
+            margin-right: 21px;
+        }
+
+        .header-input {
+            display: block;
+            width: 500px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 14px;
+            border: none;
+            /*outline: none;*/
+            text-indent: 18px;
+            border-radius: 3px 0 0 3px;
+
+            &::-webkit-input-placeholder { /* WebKit browsers */
+                color: $text-color-placeholder;
+            }
+        }
+
+        .header-btn {
+            height: 50px;
+            width: 127px;
+            font-size: 16px;
+            font-weight: 600;
+            color: $color-white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            &.btn1 {
+                background: $color-brand;
+                border-radius: 0 3px 3px 0;
+                margin-right: 34px;
+            }
+
+            &.btn2 {
+                background: $color-warning;
+                border-radius: 3px;
+            }
+
+            .iconfont {
+                margin-right: 9px;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .header-tab {
+        padding-top: 30px;
+        padding-bottom: 40px;
+        display: flex;
+        align-items: center;
+
+        .header-tab-item {
+            display: block;
+            color: $text-color-main;
+            font-size: 17px;
+            font-weight: 600;
+            margin-right: 40px;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 16px;
+
+            &.active {
+                color: $color-brand;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    height: 3px;
+                    width: 60px;
+                    background: $color-brand;
+                    left: 50%;
+                    margin-left: -30px;
+                    bottom: 0;
+                }
+            }
+
+            &:hover {
+                color: $color-brand;
+            }
+        }
+    }
+}
