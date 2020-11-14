@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   color: #606266;
   font-size: 14px;
@@ -28,6 +29,22 @@ ul, li {
   -ms-flex-align: center;
   align-items: center;
   font-size: inherit;
+}
+
+.color-blue {
+  color: #3391FF;
+}
+
+.color-red {
+  color: #EF5648;
+}
+
+.color-gray {
+  color: #979797;
+}
+
+.mr-15 {
+  margin-right: 15px;
 }
 
 .wrap {
@@ -118,7 +135,16 @@ ul, li {
   font-size: 16px;
 }
 .nav .nav-item .nav-item-menu {
-  display: none;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  -webkit-transform-origin: top center;
+  -moz-transform-origin: top center;
+  -ms-transform-origin: top center;
+  -o-transform-origin: top center;
+  transform-origin: top center;
   position: absolute;
   z-index: 99;
   top: 40px;
@@ -155,7 +181,20 @@ ul, li {
   border-right-color: transparent;
 }
 .nav .nav-item:hover .nav-item-menu {
-  display: block;
+  transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  /* IE 9 */
+  -moz-transition: all 0.5s;
+  /* Firefox */
+  -webkit-transition: all 0.5s;
+  /* Safari 和 Chrome */
+  -o-transition: all 0.5s;
+  /* Opera */
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
 }
 .nav .nav-left .nav-item {
   margin-right: 30px;
@@ -349,6 +388,204 @@ ul, li {
 }
 .header .header-tab .header-tab-item:hover {
   color: #3391FF;
+}
+
+.index-header {
+  background: #F5F5F6;
+}
+.index-header .wrap {
+  padding-top: 30px;
+  display: -webkit-box;
+  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;
+  /* Firefox 17- */
+  display: -webkit-flex;
+  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;
+  /* Firefox 18+ */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.index-header .header-logo {
+  display: block;
+  width: 107px;
+  height: 95px;
+  margin-right: 42px;
+}
+.index-header .header-main {
+  display: -webkit-box;
+  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;
+  /* Firefox 17- */
+  display: -webkit-flex;
+  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;
+  /* Firefox 18+ */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.index-header .header-main .header-input {
+  display: -webkit-box;
+  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;
+  /* Firefox 17- */
+  display: -webkit-flex;
+  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;
+  /* Firefox 18+ */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px 0 0 3px;
+  background-color: white;
+  width: 648px;
+  overflow: hidden;
+}
+.index-header .header-main .header-input input {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 50px;
+  line-height: 50px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  text-indent: 18px;
+}
+.index-header .header-main .header-input input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #BDBDBD;
+}
+.index-header .header-main .header-input .iconfont {
+  font-size: 15px;
+  cursor: pointer;
+  margin-right: 7px;
+  color: #979797;
+}
+.index-header .header-main .header-input .icontxt {
+  font-size: 14px;
+  margin-right: 30px;
+  font-weight: 600;
+}
+.index-header .header-btn {
+  height: 50px;
+  width: 127px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  display: -webkit-box;
+  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;
+  /* Firefox 17- */
+  display: -webkit-flex;
+  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;
+  /* Firefox 18+ */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -moz-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.index-header .header-btn.btn1 {
+  background: #3391FF;
+  border-radius: 0 3px 3px 0;
+  margin-right: 34px;
+}
+.index-header .header-btn.btn2 {
+  background: #FC5A07;
+  border-radius: 3px;
+}
+.index-header .header-btn .iconfont {
+  margin-right: 8px;
+  font-size: 15px;
+}
+.index-header .header-hot {
+  padding: 13px 0 10px;
+}
+.index-header .header-hot a {
+  text-decoration: none;
+}
+.index-header .header-tab {
+  padding: 0 16px 16px;
+  position: relative;
+}
+.index-header .header-tab .header-tab-item {
+  text-decoration: none;
+  color: #979797;
+  font-size: 14px;
+  margin-right: 24px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.index-header .header-tab .header-tab-item.active {
+  color: #3391FF;
+  font-size: 16px;
+}
+.index-header .header-tab .header-tab-bar {
+  content: "";
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  margin-left: -8px;
+  bottom: -1px;
+  display: inline-block;
+  border: 8px solid white;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  /* IE 9 */
+  -moz-transition: all 0.5s;
+  /* Firefox */
+  -webkit-transition: all 0.5s;
+  /* Safari 和 Chrome */
+  -o-transition: all 0.5s;
+  /* Opera */
+  transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  -moz-transform: translateX(30px);
+  -webkit-transform: translateX(30px);
+  -o-transform: translateX(30px);
 }
 
 /*main*/

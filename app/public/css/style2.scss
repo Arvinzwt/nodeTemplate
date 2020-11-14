@@ -133,6 +133,22 @@ ul, li {
     font-size: inherit;
 }
 
+.color-blue {
+    color: #3391FF;
+}
+
+.color-red {
+    color: #EF5648;
+}
+
+.color-gray {
+    color: #979797;
+}
+
+.mr-15 {
+    margin-right: 15px;
+}
+
 .wrap {
     width: 1200px;
     margin: 0 auto;
@@ -165,7 +181,18 @@ ul, li {
         font-size: 16px;
 
         .nav-item-menu {
-            display: none;
+            transform: scale(0); //
+            -webkit-transform: scale(0); //for Chrome || Safari
+            -moz-transform: scale(0); //for Firefox
+            -ms-transform: scale(0); //for IE
+            -o-transform: scale(0); //for Opera
+
+            -webkit-transform-origin: top center;
+            -moz-transform-origin: top center;
+            -ms-transform-origin: top center;
+            -o-transform-origin: top center;
+            transform-origin: top center;
+
             position: absolute;
             z-index: 99;
             top: 40px;
@@ -210,7 +237,17 @@ ul, li {
 
         &:hover {
             .nav-item-menu {
-                display: block;
+                transition: all 0.5s;
+                -ms-transition: all 0.5s; /* IE 9 */
+                -moz-transition: all 0.5s; /* Firefox */
+                -webkit-transition: all 0.5s; /* Safari 和 Chrome */
+                -o-transition: all 0.5s; /* Opera */
+
+                transform: scale(1); //
+                -webkit-transform: scale(1); //for Chrome || Safari
+                -moz-transform: scale(1); //for Firefox
+                -ms-transform: scale(1); //for IE
+                -o-transform: scale(1); //for Opera
             }
         }
     }
@@ -309,7 +346,7 @@ ul, li {
             }
         }
 
-        .header-link{
+        .header-link {
             color: $text-color-secondary;
             font-size: 12px;
             margin-left: 23px;
@@ -352,6 +389,148 @@ ul, li {
             &:hover {
                 color: $color-brand;
             }
+        }
+    }
+}
+
+.index-header {
+    background: $color-info;
+
+    .wrap {
+        padding-top: 30px;
+        @include flex;
+        @include align-center;
+    }
+
+    .header-logo {
+        display: block;
+        width: 107px;
+        height: 95px;
+        margin-right: 42px;
+    }
+
+    .header-main {
+        @include flex;
+        @include align-center;
+
+        .header-input {
+            @include flex;
+            @include align-center;
+            border-radius: 3px 0 0 3px;
+            background-color: $color-white;
+            width: 648px;
+            overflow: hidden;
+
+            input {
+                @include flex-1;
+                height: 50px;
+                line-height: 50px;
+                font-size: 14px;
+                border: none;
+                outline: none;
+                text-indent: 18px;
+
+                &::-webkit-input-placeholder { /* WebKit browsers */
+                    color: $text-color-placeholder;
+                }
+            }
+
+            .iconfont {
+                font-size: 15px;
+                cursor: pointer;
+                margin-right: 7px;
+                color: #979797;
+            }
+
+            .icontxt {
+                font-size: 14px;
+                margin-right: 30px;
+                font-weight: 600;
+            }
+
+        }
+    }
+
+    .header-btn {
+        height: 50px;
+        width: 127px;
+        font-size: 16px;
+        font-weight: 600;
+        color: $color-white;
+        @include flex;
+        @include align-center;
+        @include justify-center;
+        cursor: pointer;
+
+        &.btn1 {
+            background: $color-brand;
+            border-radius: 0 3px 3px 0;
+            margin-right: 34px;
+        }
+
+        &.btn2 {
+            background: $color-warning;
+            border-radius: 3px;
+        }
+
+        .iconfont {
+            margin-right: 8px;
+            font-size: 15px;
+        }
+    }
+
+    .header-hot {
+        padding: 13px 0 10px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .header-tab {
+        padding: 0 16px 16px;
+        position: relative;
+
+        .header-tab-item {
+            text-decoration: none;
+            color: #979797;
+            font-size: 14px;
+            margin-right: 24px;
+            cursor: pointer;
+            font-weight: 600;
+
+            &.active {
+                color: $color-brand;
+                font-size: 16px;
+            }
+        }
+
+        $iconWidth: 8px;
+
+        .header-tab-bar {
+            content: "";
+            background-color: transparent;
+            position: absolute;
+            left: 0;
+            margin-left: -$iconWidth;
+            bottom: -1px;
+            display: inline-block;
+            border: $iconWidth solid $color-white;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-right-color: transparent;
+
+            transition: all 0.5s;
+            -ms-transition: all 0.5s; /* IE 9 */
+            -moz-transition: all 0.5s; /* Firefox */
+            -webkit-transition: all 0.5s; /* Safari 和 Chrome */
+            -o-transition: all 0.5s; /* Opera */
+
+            transform: translateX(30px);
+            -ms-transform: translateX(30px);
+            -moz-transform: translateX(30px);
+            -webkit-transform: translateX(30px);
+            -o-transform: translateX(30px);
         }
     }
 }
