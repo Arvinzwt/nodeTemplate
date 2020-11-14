@@ -226,6 +226,7 @@ ul, li {
             font-size: 15px;
             margin-right: 8px;
         }
+
         .icon-touxiang {
             font-size: 22px;
             margin-right: 8px;
@@ -251,19 +252,33 @@ ul, li {
         }
 
         .header-input {
-            display: block;
-            width: 500px;
-            height: 50px;
-            line-height: 50px;
-            font-size: 14px;
-            border: none;
-            /*outline: none;*/
-            text-indent: 18px;
+            @include flex;
+            @include align-center;
             border-radius: 3px 0 0 3px;
+            background-color: $color-white;
+            width: 500px;
+            overflow: hidden;
 
-            &::-webkit-input-placeholder { /* WebKit browsers */
-                color: $text-color-placeholder;
+            input {
+                @include flex-1;
+                height: 50px;
+                line-height: 50px;
+                font-size: 14px;
+                border: none;
+                outline: none;
+                text-indent: 18px;
+
+                &::-webkit-input-placeholder { /* WebKit browsers */
+                    color: $text-color-placeholder;
+                }
             }
+
+            .iconfont {
+                font-size: 15px;
+                padding: 0 22px;
+                cursor: pointer;
+            }
+
         }
 
         .header-btn {
@@ -292,6 +307,13 @@ ul, li {
                 margin-right: 8px;
                 font-size: 18px;
             }
+        }
+
+        .header-link{
+            color: $text-color-secondary;
+            font-size: 12px;
+            margin-left: 23px;
+            cursor: pointer;
         }
     }
 
@@ -388,7 +410,7 @@ ul, li {
             display: inline-block;
             position: relative;
 
-            .iconfont{
+            .iconfont {
                 position: absolute;
                 bottom: 70%;
                 left: 100%;
