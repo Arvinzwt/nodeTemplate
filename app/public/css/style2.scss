@@ -222,8 +222,13 @@ ul, li {
     .nav-right .nav-item {
         margin-left: 16px;
 
-        .iconfont {
-            font-size: 18px;
+        .icon-shouji {
+            font-size: 15px;
+            margin-right: 8px;
+        }
+        .icon-touxiang {
+            font-size: 22px;
+            margin-right: 8px;
         }
     }
 }
@@ -284,7 +289,7 @@ ul, li {
             }
 
             .iconfont {
-                margin-right: 9px;
+                margin-right: 8px;
                 font-size: 18px;
             }
         }
@@ -380,21 +385,15 @@ ul, li {
         }
 
         &.active {
+            display: inline-block;
             position: relative;
 
-            &:after {
-                content: "new";
+            .iconfont{
                 position: absolute;
-                border: aliceblue;
-                top: -5px;
-                right: 2px;
+                bottom: 70%;
+                left: 100%;
                 font-size: 10px;
-                background: $color-warning;
-                color: $color-white;
-                padding: 0 3px;
-                border-radius: 2px;
-                font-style: italic;
-                vertical-align: middle;
+                color: $color-warning;
             }
 
             a {
