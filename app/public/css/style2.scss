@@ -114,6 +114,14 @@ $jr-shadow-basic: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     flex-wrap: wrap;
 }
 
+@mixin transition {
+    transition: all 0.5s;
+    -ms-transition: all 0.5s; /* IE 9 */
+    -moz-transition: all 0.5s; /* Firefox */
+    -webkit-transition: all 0.5s; /* Safari 和 Chrome */
+    -o-transition: all 0.5s; /* Opera */
+}
+
 body {
     color: $text-color-regular;
     font-size: 14px;
@@ -237,11 +245,7 @@ ul, li {
 
         &:hover {
             .nav-item-menu {
-                transition: all 0.5s;
-                -ms-transition: all 0.5s; /* IE 9 */
-                -moz-transition: all 0.5s; /* Firefox */
-                -webkit-transition: all 0.5s; /* Safari 和 Chrome */
-                -o-transition: all 0.5s; /* Opera */
+               @include transition;
 
                 transform: scale(1); //
                 -webkit-transform: scale(1); //for Chrome || Safari
@@ -520,11 +524,7 @@ ul, li {
             border-left-color: transparent;
             border-right-color: transparent;
 
-            transition: all 0.5s;
-            -ms-transition: all 0.5s; /* IE 9 */
-            -moz-transition: all 0.5s; /* Firefox */
-            -webkit-transition: all 0.5s; /* Safari 和 Chrome */
-            -o-transition: all 0.5s; /* Opera */
+            @include transition;
 
             transform: translateX(30px);
             -ms-transform: translateX(30px);
