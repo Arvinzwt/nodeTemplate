@@ -120,6 +120,12 @@ body {
     font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, SimSun, sans-serif;
 }
 
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 .iconfont {
     @include inline-flex;
     @include justify-center;
@@ -137,17 +143,76 @@ body {
     background: $color-brand;
 
     .wrap {
-        height: 44px;
         @include flex;
         @include align-center;
         @include justify-between;
     }
 
+    .nav-left, .nav-right {
+        @include flex;
+        @include align-center;
+    }
+
     .nav-item {
+        @include flex;
+        @include align-center;
+        @include justify-center;
+        position: relative;
+        height: 44px;
         color: $color-white;
         text-decoration: none;
         font-weight: 500;
         font-size: 16px;
+
+        .nav-item-menu {
+            display: none;
+            position: absolute;
+            z-index: 99;
+            top: 40px;
+            left: 50%;
+            margin-left: -58px;
+            color: $color-black;
+            text-align: center;
+            background-color: $color-white;
+            border-radius: 2px;
+            border: 1px solid #F3F3F3;
+
+            .item {
+                width: 116px;
+                font-size: 14px;
+                padding: 8px 0;
+
+                &:hover {
+                    color: $color-brand;
+                }
+            }
+
+            .item:first-child {
+                position: relative;
+
+                $iconWidth: 8px;
+
+                &:after {
+                    content: '';
+                    background-color: transparent;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -$iconWidth;
+                    bottom: 100%;
+                    display: inline-block;
+                    border: $iconWidth solid $color-white;
+                    border-top-color: transparent;
+                    border-left-color: transparent;
+                    border-right-color: transparent;
+                }
+            }
+        }
+
+        &:hover {
+            .nav-item-menu {
+                display: block;
+            }
+        }
     }
 
     .nav-left .nav-item {
@@ -247,6 +312,7 @@ body {
                 &:after {
                     content: '';
                     position: absolute;
+                    z-index: 9;
                     height: 3px;
                     width: 60px;
                     background: $color-brand;
@@ -405,13 +471,28 @@ body {
 }
 
 /*other*/
+$otherHeight: 128px;
+.other-wrap {
+    height: $otherHeight;
+
+    &.hidden {
+        display: none;
+    }
+}
+
 .other {
+    height: $otherHeight;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+
     @include flex;
     @include align-center;
     @include justify-center;
     background-color: $color-white;
     box-shadow: $jr-shadow-basic;
-    height: 128px;
 
     .other-item {
         margin-right: 120px;
@@ -441,4 +522,16 @@ body {
         color: $text-color-secondary;
     }
 
+    .icon-Close {
+        color: $text-color-placeholder;
+        font-size: 16px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+
+        :hover {
+            color: $text-color-secondary;
+        }
+    }
 }
