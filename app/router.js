@@ -6,6 +6,9 @@
 module.exports = app => {
     const {router, controller} = app;
     router.get('/', controller.home.index);
+    router.get('/supermarket', controller.home.supermarket);
+
+
     router.post('/ool-api/user/v2/base/login', controller.auth.login);
     router.post('/ool-api/user/v2/base/logout', controller.auth.logout);
     router.get('/ool-api/user/v2/base/usr', controller.auth.usr);

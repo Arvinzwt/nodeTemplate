@@ -134,6 +134,10 @@ ul, li {
     list-style: none;
 }
 
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color: $text-color-placeholder;
+}
+
 .iconfont {
     @include inline-flex;
     @include justify-center;
@@ -245,7 +249,7 @@ ul, li {
 
         &:hover {
             .nav-item-menu {
-               @include transition;
+                @include transition;
 
                 transform: scale(1); //
                 -webkit-transform: scale(1); //for Chrome || Safari
@@ -308,10 +312,6 @@ ul, li {
                 border: none;
                 outline: none;
                 text-indent: 18px;
-
-                &::-webkit-input-placeholder { /* WebKit browsers */
-                    color: $text-color-placeholder;
-                }
             }
 
             .iconfont {
@@ -733,5 +733,77 @@ $otherHeight: 128px;
         :hover {
             color: $text-color-secondary;
         }
+    }
+}
+
+.supermarket {
+    @include flex;
+    @include align-center;
+    @include justify-center;
+    @include flex-direction-column;
+    color: $color-white;
+    background: url("/public/image/bg_header.jpg") no-repeat center;
+    background-size: auto 100%;
+    padding: 108px 0 259px;
+
+    p {
+        padding: 0;
+        margin: 0;
+        width: 593px;
+    }
+
+    .supermarket-mark {
+        font-size: 18px;
+        margin-bottom: 11px;
+    }
+
+    .supermarket-title {
+        font-size: 66px;
+        margin-bottom: 34px;
+        font-weight: 600;
+        line-height: 92px;
+    }
+
+    .supermarket-search {
+        @include flex;
+        @include align-center;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .supermarket-search-main {
+        width: 509px;
+        @include flex;
+        @include align-center;
+        background-color: $color-white;
+
+        .supermarket-input {
+            @include flex-1;
+            height: 56px;
+            text-indent: 18px;
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .supermarket-select {
+            width: 100px;
+            margin-right: 6px;
+            font-size: 14px;
+            border: 1px solid #E4E4E4;
+            outline: none;
+        }
+    }
+
+    .supermarket-btn {
+        @include flex;
+        @include align-center;
+        @include justify-center;
+        text-decoration: none;
+        width: 84px;
+        height: 56px;
+        background-color: #3391FF;
+        color: #ffffff;
     }
 }
