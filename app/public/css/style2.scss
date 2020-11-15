@@ -803,7 +803,158 @@ $otherHeight: 128px;
         text-decoration: none;
         width: 84px;
         height: 56px;
-        background-color: #3391FF;
+        background-color: $color-brand;
         color: #ffffff;
+    }
+}
+
+
+.second {
+    padding: 20px 0;
+
+    .wrap {
+        width: 1168px;
+    }
+
+    .second-search {
+        padding: 15px;
+        border: 1px solid #EDEEF0;
+        background-color: #FDFBFC;
+        font-size: 0;
+        font-size: 12px;
+
+
+        .second-search-wrap {
+            @include flex;
+            @include align-start;
+            margin-bottom: 10px;
+
+            .second-search-title {
+                font-weight: bold;
+                width: 60px;
+                line-height: 22px;
+            }
+
+            .second-search-main {
+                max-width: 840px;
+                @include flex;
+                @include align-center;
+                @include flex-wrap;
+
+                input[type="checkbox"] {
+                    display: none;
+                }
+
+                .second-search-item {
+                    @include flex;
+                    @include align-center;
+                    width: 110px;
+                    height: 22px;
+                    line-height: 22px;
+                    color: #303035;
+                    cursor: pointer;
+
+                    .checkbox {
+                        display: inline-block;
+                        width: 12px;
+                        height: 12px;
+                        border: 1px solid #C7CED1;
+                        background: rgb(246, 246, 247);
+                        margin-right: 5px;
+                        vertical-align: text-top;
+                        position: relative;
+                    }
+                }
+
+                input[type="checkbox"]:checked + .second-search-item {
+                    color: $color-brand;
+                    font-weight: 700;
+
+                    .checkbox:after {
+                        content: '';
+                        position: absolute;
+                        width: 4px;
+                        height: 8px;
+                        color: black;
+                        border-bottom: 2px solid $color-brand;
+                        border-right: 2px solid $color-brand;
+                        left: 50%;
+                        top: 20%;
+                        transform-origin: center;
+                        transform: translate(-50%, -30%) rotate(40deg);
+                        -webkit-transform: translate(-50%, -30%) rotate(40deg);
+                    }
+                }
+            }
+
+            .second-search-tool {
+                .second-search-link {
+                    color: #A7A8A9;
+                    cursor: pointer;
+                    height: 22px;
+                    line-height: 22px;
+                }
+
+                .second-search-input {
+                    width: 45px;
+                    height: 20px;
+                    background: rgb(255, 255, 255);
+                    border: 1px solid rgb(236, 236, 241);
+                    padding: 0 3px;
+                }
+
+                .second-search-btn {
+                    width: 51px;
+                    height: 20px;
+                    background: $color-brand;
+                    color: #fff;
+                    margin-left: 10px;
+                    border: none;
+                }
+            }
+        }
+
+        .second-search-other {
+            border-top: 1px solid #F1F1F1;
+            border-bottom: 1px solid #F1F1F1;
+            @include align-center;
+
+            .second-search-main {
+                max-width: none;
+
+                .second-search-item {
+                    @include flex;
+                    @include justify-center;
+                    @include align-center;
+                    width: 90px;
+                    height: 50px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+                    &:hover {
+                        background-color: rgb(241, 241, 241);
+                        font-weight: 600;
+                    }
+
+                    .iconfont {
+                        font-size: 10px;
+                        color: $text-color-secondary;
+                        margin-left: 4px;
+                    }
+
+                    &.active {
+                        color: $color-brand;
+                        font-weight: 600;
+                    }
+                }
+
+            }
+        }
+
+        .second-search-more {
+            margin-bottom: 0;
+            padding: 0 15px;
+        }
     }
 }
