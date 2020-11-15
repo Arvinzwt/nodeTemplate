@@ -1203,6 +1203,18 @@ $otherHeight: 128px;
                                 background: rgb(242, 245, 247);
                                 border-radius: 2px;
                             }
+
+                            .vrfang {
+                                width: 75px;
+                                height: 22px;
+                                display: block;
+                                float: left;
+                                padding-left: 19px;
+                                text-align: center;
+                                background: url(/public/image/icon_vr.png) no-repeat;
+                                background-size: 19px;
+                                border: 1px solid #13c56c;
+                            }
                         }
                     }
 
