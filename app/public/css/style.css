@@ -1563,6 +1563,112 @@ input::-webkit-input-placeholder {
   font-size: 26px;
   font-weight: bold;
 }
+.second .second-body .second-body-left .second-body-list2 .second-body-item ul {
+  display: -webkit-box;
+  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;
+  /* Firefox 17- */
+  display: -webkit-flex;
+  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;
+  /* Firefox 18+ */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 66px;
+  border-bottom: 1px dashed #eeeeee;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .te {
+  display: -webkit-box;
+  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;
+  /* Firefox 17- */
+  display: -webkit-flex;
+  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;
+  /* Firefox 18+ */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 30px;
+  display: inline-block;
+  width: 350px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background: url(/public/image/zj.gif) no-repeat 0px 8px;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .te .vr {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(/public/image/tupic-vr.png) no-repeat 0 3px;
+  margin-left: 3px;
+  vertical-align: middle;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .te .tu {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(/public/image/tupic-blue.png) no-repeat 0 4px;
+  margin-left: 5px;
+  font-size: 0px;
+  vertical-align: middle;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .mjw {
+  width: 80px;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .lcw {
+  width: 80px;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .jgw {
+  width: 90px;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .fxw {
+  width: 110px;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .zxw {
+  width: 60px;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .sjw {
+  width: 60px;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item a {
+  color: #2d374b;
+  text-decoration: none;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item a:hover {
+  color: #FC5A07;
+  text-decoration: underline;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .second-body-item-title {
+  border-bottom: 1px solid #ddd;
+  background: #F5F5F5;
+  font-weight: 700;
+  height: 30px;
+}
+.second .second-body .second-body-left .second-body-list2 .second-body-item .second-body-item-title .te {
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 30px;
+  display: inline-block;
+  background: none;
+}
 .second .second-body .second-body-left .second-body-pages {
   display: -webkit-box;
   /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */

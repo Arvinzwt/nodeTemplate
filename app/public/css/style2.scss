@@ -1244,6 +1244,106 @@ $otherHeight: 128px;
                 }
             }
 
+            .second-body-list2 {
+                .second-body-item {
+                    ul {
+                        @include flex;
+                        @include align-center;
+
+                        //border-bottom: 1px solid #ddd;
+                        //background: #F5F5F5;
+                        //font-weight: 700;
+                        height: 66px;
+                        border-bottom: 1px dashed #eeeeee;
+                    }
+
+                    .te {
+                        @include flex;
+                        @include align-center;
+                        font-weight: bold;
+                        font-size: 13px;
+                        line-height: 30px;
+                        display: inline-block;
+
+                        width: 350px;
+                        padding-left: 40px;
+                        padding-right: 40px;
+                        background: url(/public/image/zj.gif) no-repeat 0px 8px;
+
+                        .vr {
+                            display: inline-block;
+                            width: 20px;
+                            height: 20px;
+                            background: url(/public/image/tupic-vr.png) no-repeat 0 3px;
+                            margin-left: 3px;
+                            vertical-align: middle;
+                        }
+
+                        .tu {
+                            display: inline-block;
+                            width: 20px;
+                            height: 20px;
+                            background: url(/public/image/tupic-blue.png) no-repeat 0 4px;
+                            margin-left: 5px;
+                            font-size: 0px;
+                            vertical-align: middle;
+                        }
+                    }
+
+                    .mjw {
+                        width: 80px;
+                    }
+
+                    .lcw {
+                        width: 80px;
+                    }
+
+                    .jgw {
+                        width: 90px;
+                    }
+
+                    .fxw {
+                        width: 110px;
+                    }
+
+                    .zxw {
+                        width: 60px;
+                    }
+
+                    .sjw {
+                        width: 60px;
+                    }
+
+                    a {
+                        color: #2d374b;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: $color-warning;
+                            text-decoration: underline;
+                        }
+                    }
+
+                    .second-body-item-title {
+                        border-bottom: 1px solid #ddd;
+                        background: #F5F5F5;
+                        font-weight: 700;
+                        height: 30px;
+
+                        .te {
+                            font-weight: bold;
+                            font-size: 13px;
+                            line-height: 30px;
+                            display: inline-block;
+
+                            background: none;
+                        }
+                    }
+                }
+
+
+            }
+
             .second-body-pages {
                 @include flex;
                 @include align-center;
