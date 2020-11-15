@@ -157,6 +157,10 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     color: #979797;
 }
 
+.color-green {
+    color: rgb(108, 159, 29);
+}
+
 .font-bolder {
     font-weight: bolder;
 }
@@ -170,8 +174,10 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     margin: 0 auto;
 }
 
-.checkbox-wrap {
-
+.text_ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 /*nav*/
@@ -1263,7 +1269,6 @@ $otherHeight: 128px;
                         font-weight: bold;
                         font-size: 13px;
                         line-height: 30px;
-                        display: inline-block;
 
                         width: 350px;
                         padding-left: 40px;
@@ -1287,6 +1292,16 @@ $otherHeight: 128px;
                             margin-left: 5px;
                             font-size: 0px;
                             vertical-align: middle;
+                        }
+
+                        .text_ellipsis {
+                            display: inline-block;
+                            max-width: 253px;
+                            vertical-align: middle;
+                        }
+
+                        .color-green {
+                            color: rgb(108, 159, 29);
                         }
                     }
 
