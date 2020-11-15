@@ -10,6 +10,10 @@ class HomeController extends Controller {
     async supermarket(){
         await this.ctx.render('supermarket.html');
     }
+
+    async second(){
+        await this.ctx.render('second.html');
+    }
 }
 
 module.exports = HomeController;

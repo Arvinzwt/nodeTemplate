@@ -360,7 +360,7 @@ input::-webkit-input-placeholder { /* WebKit browsers */
 
     .header-tab {
         padding-top: 30px;
-        padding-bottom: 40px;
+        padding-bottom: 24px;
         @include flex;
         @include align-center;
 
@@ -372,7 +372,7 @@ input::-webkit-input-placeholder { /* WebKit browsers */
             margin-right: 40px;
             text-decoration: none;
             position: relative;
-            padding-bottom: 16px;
+            padding-bottom: 15px;
 
             &.active {
                 color: $color-brand;

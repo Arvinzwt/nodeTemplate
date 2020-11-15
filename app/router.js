@@ -7,6 +7,7 @@ module.exports = app => {
     const {router, controller} = app;
     router.get('/', controller.home.index);
     router.get('/supermarket', controller.home.supermarket);
+    router.get('/second', controller.home.second);
 
 
     router.post('/ool-api/user/v2/base/login', controller.auth.login);

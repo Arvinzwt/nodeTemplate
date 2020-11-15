@@ -343,7 +343,7 @@ input::-webkit-input-placeholder {
 }
 .header .header-tab {
   padding-top: 30px;
-  padding-bottom: 40px;
+  padding-bottom: 24px;
   display: -webkit-box;
   /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
   display: -moz-box;
@@ -371,7 +371,7 @@ input::-webkit-input-placeholder {
   margin-right: 40px;
   text-decoration: none;
   position: relative;
-  padding-bottom: 16px;
+  padding-bottom: 15px;
 }
 .header .header-tab .header-tab-item.active {
   color: #3391FF;
