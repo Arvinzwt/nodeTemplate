@@ -1642,6 +1642,7 @@ input::-webkit-input-placeholder {
 }
 .second .second-body .second-body-left .second-body-list2 .second-body-item .te .color-green {
   color: #6c9f1d;
+  margin-right: 10px;
 }
 .second .second-body .second-body-left .second-body-list2 .second-body-item .mjw {
   width: 80px;
