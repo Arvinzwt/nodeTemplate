@@ -1138,6 +1138,7 @@ $otherHeight: 128px;
                     overflow: hidden;
 
                     .second-body-item-icon {
+                        position: relative;
 
                         img {
                             display: block;
@@ -1327,11 +1328,121 @@ $otherHeight: 128px;
         }
 
         .second-body-right {
+            width: 230px;
+            margin-left: 20px;
+
             .second-body-right-ad, .second-body-right-list {
-                width: 250px;
-                padding-left: 20px;
-                border: 1px solid green;
+                //
+
+            }
+
+            .second-body-right-ad {
+
+                .second-body-right-title {
+                    background: $color-brand;
+                    display: block;
+                    height: 43px;
+                    line-height: 43px;
+                    font-size: 20px;
+                    text-align: center;
+                    color: #FFF;
+                    text-decoration: none;
+                }
+
+                .second-body-right-img {
+                    display: block;
+                    width: 100%;
+                    position: relative;
+                }
+
+                .second-body-right-txt {
+                    font-size: 12px;
+                    line-height: 20px;
+                }
+            }
+
+            .second-body-right-list {
+                .second-body-right-list-title {
+                    font-size: 16px;
+                    line-height: 30px;
+                    color: #333;
+                    font-weight: bold;
+                    margin: 25px 0 10px 0
+                }
+
+                .second-body-right-item {
+                    padding: 10px 0;
+
+                    .second-body-right-img {
+                        display: block;
+                        height: 150px;
+                        overflow: hidden;
+                        position: relative;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    .second-body-right-name {
+                        font-size: 16px;
+                        font-family: Microsoft YaHei;
+                        font-weight: bold;
+                        color: rgb(16, 29, 55);
+                        line-height: 27px;
+                    }
+
+                    .second-body-right-mark {
+                        font-size: 14px;
+                        font-family: Microsoft YaHei;
+                        font-weight: 400;
+                        color: rgb(147, 153, 165);
+                        line-height: 27px;
+                    }
+
+                    .second-body-right-price {
+                        font-size: 16px;
+                        font-family: Microsoft YaHei;
+                        font-weight: 400;
+                        color: rgb(254, 93, 85);
+                        line-height: 20px;
+                    }
+                }
             }
         }
+    }
+}
+
+.vr-animation-forever {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -21px;
+    margin-top: -21px;
+    line-height: 31px;
+    background: rgba(0, 0, 0, .6);
+    border-radius: 100px;
+    background: url(/public/image/vr_animation.png);
+    background-position-y: 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 1px solid hsla(0, 0%, 100%, .8);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+    -webkit-animation: vr 3s steps(80) infinite;
+    animation: vr 3s steps(80) infinite;
+}
+
+@-webkit-keyframes vr {
+    to {
+        background-position-y: 100%
+    }
+}
+
+@keyframes vr {
+    to {
+        background-position-y: 100%
     }
 }

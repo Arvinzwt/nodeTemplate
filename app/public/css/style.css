@@ -1204,7 +1204,6 @@ input::-webkit-input-placeholder {
   -ms-flex-pack: justify;
   justify-content: space-between;
   margin: 30px 0;
-  border: 1px solid red;
 }
 .second .second-body .second-body-left {
   -webkit-box-flex: 1;
@@ -1469,6 +1468,9 @@ input::-webkit-input-placeholder {
   border-bottom: 1px solid #eee;
   overflow: hidden;
 }
+.second .second-body .second-body-left .second-body-list .second-body-item .second-body-item-icon {
+  position: relative;
+}
 .second .second-body .second-body-left .second-body-list .second-body-item .second-body-item-icon img {
   display: block;
   width: 180px;
@@ -1686,10 +1688,101 @@ input::-webkit-input-placeholder {
 .second .second-body .second-body-left .second-body-hot .second-body-hot-list .second-body-hot-item span {
   color: #999;
 }
-.second .second-body .second-body-right .second-body-right-ad, .second .second-body .second-body-right .second-body-right-list {
-  width: 250px;
-  padding-left: 20px;
-  border: 1px solid green;
+.second .second-body .second-body-right {
+  width: 230px;
+  margin-left: 20px;
+}
+.second .second-body .second-body-right .second-body-right-ad .second-body-right-title {
+  background: #3391FF;
+  display: block;
+  height: 43px;
+  line-height: 43px;
+  font-size: 20px;
+  text-align: center;
+  color: #FFF;
+  text-decoration: none;
+}
+.second .second-body .second-body-right .second-body-right-ad .second-body-right-img {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.second .second-body .second-body-right .second-body-right-ad .second-body-right-txt {
+  font-size: 12px;
+  line-height: 20px;
+}
+.second .second-body .second-body-right .second-body-right-list .second-body-right-list-title {
+  font-size: 16px;
+  line-height: 30px;
+  color: #333;
+  font-weight: bold;
+  margin: 25px 0 10px 0;
+}
+.second .second-body .second-body-right .second-body-right-list .second-body-right-item {
+  padding: 10px 0;
+}
+.second .second-body .second-body-right .second-body-right-list .second-body-right-item .second-body-right-img {
+  display: block;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+.second .second-body .second-body-right .second-body-right-list .second-body-right-item .second-body-right-img img {
+  width: 100%;
+  height: auto;
+}
+.second .second-body .second-body-right .second-body-right-list .second-body-right-item .second-body-right-name {
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #101d37;
+  line-height: 27px;
+}
+.second .second-body .second-body-right .second-body-right-list .second-body-right-item .second-body-right-mark {
+  font-size: 14px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #9399a5;
+  line-height: 27px;
+}
+.second .second-body .second-body-right .second-body-right-list .second-body-right-item .second-body-right-price {
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #fe5d55;
+  line-height: 20px;
+}
+
+.vr-animation-forever {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -21px;
+  margin-top: -21px;
+  line-height: 31px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 100px;
+  background: url(/public/image/vr_animation.png);
+  background-position-y: 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  -webkit-animation: vr 3s steps(80) infinite;
+  animation: vr 3s steps(80) infinite;
+}
+
+@-webkit-keyframes vr {
+  to {
+    background-position-y: 100%;
+  }
+}
+@keyframes vr {
+  to {
+    background-position-y: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
