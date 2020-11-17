@@ -281,8 +281,11 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     .nav-right .nav-item {
         margin-left: 16px;
 
-        .icon-shouji {
-            font-size: 15px;
+        .icon-phone {
+            display: inline-block;
+            vertical-align: middle;
+            width: 15px;
+            height: auto;
             margin-right: 8px;
         }
 
@@ -756,7 +759,7 @@ $otherHeight: 128px;
     @include justify-center;
     @include flex-direction-column;
     color: $color-white;
-    background: url("/public/image/bg_header.jpg") no-repeat center;
+    background: url("/public/image/bg_header.png") no-repeat center;
     background-size: auto 100%;
     padding: 108px 0 259px;
 
@@ -837,6 +840,19 @@ $otherHeight: 128px;
         font-size: 0;
         font-size: 12px;
 
+        .second-search-main-item {
+            display: block;
+            width: 100px;
+            height: 22px;
+            line-height: 22px;
+            color: #303035;
+            cursor: pointer;
+            text-decoration: none;
+
+            &.active {
+                //color: $color-brand;
+            }
+        }
 
         .second-search-wrap {
             @include flex;
@@ -847,6 +863,7 @@ $otherHeight: 128px;
                 font-weight: bold;
                 width: 60px;
                 line-height: 22px;
+                color:#979797;
             }
 
             .second-search-main {

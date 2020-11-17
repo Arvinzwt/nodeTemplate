@@ -221,8 +221,11 @@ input::-webkit-input-placeholder {
 .nav .nav-right .nav-item {
   margin-left: 16px;
 }
-.nav .nav-right .nav-item .icon-shouji {
-  font-size: 15px;
+.nav .nav-right .nav-item .icon-phone {
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: auto;
   margin-right: 8px;
 }
 .nav .nav-right .nav-item .icon-touxiang {
@@ -876,7 +879,7 @@ input::-webkit-input-placeholder {
   -ms-flex-direction: column;
   flex-direction: column;
   color: white;
-  background: url("/public/image/bg_header.jpg") no-repeat center;
+  background: url("/public/image/bg_header.png") no-repeat center;
   background-size: auto 100%;
   padding: 108px 0 259px;
 }
@@ -1005,6 +1008,15 @@ input::-webkit-input-placeholder {
   font-size: 0;
   font-size: 12px;
 }
+.second .second-search .second-search-main-item {
+  display: block;
+  width: 100px;
+  height: 22px;
+  line-height: 22px;
+  color: #303035;
+  cursor: pointer;
+  text-decoration: none;
+}
 .second .second-search .second-search-wrap {
   display: -webkit-box;
   /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
@@ -1028,6 +1040,7 @@ input::-webkit-input-placeholder {
   font-weight: bold;
   width: 60px;
   line-height: 22px;
+  color: #979797;
 }
 .second .second-search .second-search-wrap .second-search-main {
   max-width: 840px;
