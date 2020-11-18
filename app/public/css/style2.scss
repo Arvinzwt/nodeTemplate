@@ -181,7 +181,7 @@ input::-webkit-input-placeholder { /* WebKit browsers */
 }
 
 /*nav*/
-.nav {
+.wmm-nav {
     background: $color-brand;
 
     .wrap {
@@ -296,9 +296,8 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     }
 }
 
-
 /*header*/
-.header {
+.wmm-header {
     background: $color-info;
 
     .header-search {
@@ -414,7 +413,8 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     }
 }
 
-.index-header {
+/*header2*/
+.wmm-index-header {
     background: $color-info;
 
     .wrap {
@@ -552,15 +552,8 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     }
 }
 
-/*main*/
-.main {
-    .wrap {
-
-    }
-}
-
 /*menu*/
-.menu {
+.wmm-menu {
     background-color: $color-info;
 
     .wrap {
@@ -655,7 +648,7 @@ input::-webkit-input-placeholder { /* WebKit browsers */
 }
 
 /*footer*/
-.footer {
+.wmm-footer {
     background-color: $color-black;
     text-align: center;
     color: $text-color-secondary;
@@ -689,71 +682,71 @@ input::-webkit-input-placeholder { /* WebKit browsers */
 
 /*other*/
 $otherHeight: 128px;
-.other-wrap {
+.wmm-other-wrap {
     height: $otherHeight;
 
     &.hidden {
         display: none;
     }
-}
 
-.other {
-    height: $otherHeight;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
+    .other {
+        height: $otherHeight;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
 
-    @include flex;
-    @include align-center;
-    @include justify-center;
-    background-color: $color-white;
-    box-shadow: $jr-shadow-basic;
-
-    .other-item {
-        margin-right: 120px;
         @include flex;
         @include align-center;
+        @include justify-center;
+        background-color: $color-white;
+        box-shadow: $jr-shadow-basic;
 
-        &.last {
-            margin-right: 0;
+        .other-item {
+            margin-right: 120px;
+            @include flex;
+            @include align-center;
+
+            &.last {
+                margin-right: 0;
+            }
         }
-    }
 
-    .other-item-code {
-        display: block;
-        width: 82px;
-        height: 82px;
-        margin-right: 38px;
-    }
+        .other-item-code {
+            display: block;
+            width: 82px;
+            height: 82px;
+            margin-right: 38px;
+        }
 
-    .other-item-title {
-        color: $text-color-main;
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 5px;
-    }
+        .other-item-title {
+            color: $text-color-main;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
 
-    .other-item-txt {
-        color: $text-color-secondary;
-    }
-
-    .icon-Close {
-        color: $text-color-placeholder;
-        font-size: 16px;
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        cursor: pointer;
-
-        :hover {
+        .other-item-txt {
             color: $text-color-secondary;
+        }
+
+        .icon-Close {
+            color: $text-color-placeholder;
+            font-size: 16px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+
+            :hover {
+                color: $text-color-secondary;
+            }
         }
     }
 }
 
-.supermarket {
+.wmm-supermarket {
     @include flex;
     @include align-center;
     @include justify-center;
@@ -825,8 +818,7 @@ $otherHeight: 128px;
     }
 }
 
-
-.second {
+.wmm-second {
     padding: 20px 0;
 
     .wrap {
