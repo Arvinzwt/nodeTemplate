@@ -153,6 +153,10 @@ input::-webkit-input-placeholder {
   font-weight: 500;
   font-size: 16px;
 }
+.wmm-nav .nav-item .nav-item-txt {
+  color: #ffffff;
+  text-decoration: none;
+}
 .wmm-nav .nav-item .nav-item-menu {
   transform: scale(0);
   -webkit-transform: scale(0);
@@ -180,7 +184,12 @@ input::-webkit-input-placeholder {
   font-size: 14px;
   padding: 8px 0;
 }
-.wmm-nav .nav-item .nav-item-menu .item:hover {
+.wmm-nav .nav-item .nav-item-menu .item .nav-item-menu-link {
+  color: #222222;
+  text-decoration: none;
+  display: inline;
+}
+.wmm-nav .nav-item .nav-item-menu .item .nav-item-menu-link:hover {
   color: #3391FF;
 }
 .wmm-nav .nav-item .nav-item-menu .item:first-child {
