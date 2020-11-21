@@ -1930,6 +1930,7 @@ input::-webkit-input-placeholder {
   width: 42px;
   height: 42px;
   position: absolute;
+  z-index: 1;
   left: 50%;
   top: 50%;
   margin-left: -21px;
@@ -1945,6 +1946,27 @@ input::-webkit-input-placeholder {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   -webkit-animation: vr 3s steps(80) infinite;
   animation: vr 3s steps(80) infinite;
+}
+.vr-animation-forever.vricon {
+  width: 28px;
+  height: 28px;
+  left: 10px;
+  bottom: 10px;
+  top: auto;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.play_btn {
+  position: absolute;
+  left: 47px;
+  bottom: 10px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  font-size: 0;
+  background: url(/public/image/playiconSamll.png) 0 0 no-repeat;
+  z-index: 1;
 }
 
 @-webkit-keyframes vr {
