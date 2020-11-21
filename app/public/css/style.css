@@ -1567,6 +1567,7 @@ input::-webkit-input-placeholder {
   text-align: center;
   background: #f2f5f7;
   border-radius: 2px;
+  margin-right: 5px;
 }
 .wmm-second .second-body .second-body-left .second-body-list .second-body-item .second-body-item-txt .second-body-item-tag .vrfang {
   width: 75px;
@@ -1578,6 +1579,18 @@ input::-webkit-input-placeholder {
   background: url(/public/image/icon_vr.png) no-repeat;
   background-size: 19px;
   border: 1px solid #13c56c;
+  margin-right: 5px;
+}
+.wmm-second .second-body .second-body-left .second-body-list .second-body-item .second-body-item-txt .second-body-item-tag .danbao {
+  width: 75px;
+  height: 22px;
+  display: block;
+  float: left;
+  padding-left: 19px;
+  text-align: center;
+  background: url(/public/image/icon_dan.png) no-repeat;
+  background-size: 19px;
+  border: 1px solid #fe615a;
 }
 .wmm-second .second-body .second-body-left .second-body-list .second-body-item .second-body-item-m span {
   display: inline-block;
