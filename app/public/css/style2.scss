@@ -1625,6 +1625,10 @@ $otherHeight: 128px;
     font-size: 0;
     background: url(/public/image/playiconSamll.png) 0 0 no-repeat;
     z-index: 1;
+
+    &.only{
+        left: 10px;
+    }
 }
 
 @-webkit-keyframes vr {
