@@ -1018,7 +1018,7 @@ input::-webkit-input-placeholder {
 }
 .wmm-second .second-search .second-search-main-item {
   display: block;
-  width: 80px;
+  width: 50px;
   height: 22px;
   line-height: 22px;
   color: #303035;
@@ -1346,9 +1346,14 @@ input::-webkit-input-placeholder {
   border-color: #3391FF;
 }
 .wmm-second .second-body .second-body-left .second-body-tab-wrap .second-body-type .iconfont {
+  text-decoration: none;
+  color: #222222;
   font-size: 15px;
   margin-left: 10px;
   cursor: pointer;
+}
+.wmm-second .second-body .second-body-left .second-body-tab-wrap .second-body-type .iconfont.active {
+  color: #3391FF;
 }
 .wmm-second .second-body .second-body-left .second-body-search {
   height: 56px;
