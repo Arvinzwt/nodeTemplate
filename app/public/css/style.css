@@ -1018,12 +1018,15 @@ input::-webkit-input-placeholder {
 }
 .wmm-second .second-search .second-search-main-item {
   display: block;
-  width: 100px;
+  width: 80px;
   height: 22px;
   line-height: 22px;
   color: #303035;
   cursor: pointer;
   text-decoration: none;
+}
+.wmm-second .second-search .second-search-main-item.active {
+  color: #3391FF;
 }
 .wmm-second .second-search .second-search-wrap {
   display: -webkit-box;

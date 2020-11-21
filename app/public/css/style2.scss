@@ -845,7 +845,7 @@ $otherHeight: 128px;
 
         .second-search-main-item {
             display: block;
-            width: 100px;
+            width: 50px;
             height: 22px;
             line-height: 22px;
             color: #303035;
@@ -853,7 +853,7 @@ $otherHeight: 128px;
             text-decoration: none;
 
             &.active {
-                //color: $color-brand;
+                color: $color-brand;
             }
         }
 
