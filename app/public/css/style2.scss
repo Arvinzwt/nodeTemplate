@@ -122,18 +122,6 @@ $jr-shadow-basic: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     -o-transition: all 0.5s; /* Opera */
 }
 
-body {
-    color: $text-color-regular;
-    font-size: 14px;
-    font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, SimSun, sans-serif;
-}
-
-ul, li, p {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
 input::-webkit-input-placeholder { /* WebKit browsers */
     color: $text-color-placeholder;
 }
@@ -178,6 +166,20 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.wmm-nav, .wmm-header, .wmm-index-header, .wmm-menu, .wmm-footer, .wmm-other-wrap, .wmm-supermarket, .wmm-second {
+    body {
+        color: $text-color-regular;
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, SimSun, sans-serif;
+    }
+
+    ul, li, p {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
 }
 
 /*nav*/
@@ -561,10 +563,10 @@ input::-webkit-input-placeholder { /* WebKit browsers */
     }
 }
 
+/*搜索框*/
 .wmm-header, .wmm-index-header {
     .header-input {
         position: relative;
-
 
         .header-input-search {
             font-size: 14px;
@@ -577,7 +579,7 @@ input::-webkit-input-placeholder { /* WebKit browsers */
             background: #fff;
             border-radius: 3px;
 
-            li{
+            li {
                 height: 40px;
                 @include flex;
                 @include align-center;
@@ -585,7 +587,7 @@ input::-webkit-input-placeholder { /* WebKit browsers */
                 padding: 0 18px;
                 cursor: pointer;
 
-                a{
+                a {
                     text-decoration: none;
                 }
             }
@@ -597,7 +599,7 @@ input::-webkit-input-placeholder { /* WebKit browsers */
             }
 
             .header-input-list {
-                &:hover{
+                &:hover {
                     background-color: #f9fbfc;
                 }
             }
@@ -814,6 +816,7 @@ $otherHeight: 128px;
     }
 }
 
+/*房超市*/
 .wmm-supermarket {
     @include flex;
     @include align-center;
@@ -886,6 +889,7 @@ $otherHeight: 128px;
     }
 }
 
+/*二手房*/
 .wmm-second {
     padding: 20px 0;
 
@@ -893,159 +897,141 @@ $otherHeight: 128px;
         width: 1168px;
     }
 
+    $linHeight: 27px;
+
     .second-search {
         padding: 15px;
         border: 1px solid #EDEEF0;
         background-color: #FDFBFC;
-        font-size: 0;
         font-size: 12px;
 
-        .second-search-main-item {
-            display: block;
-            width: 50px;
-            height: 22px;
-            line-height: 22px;
-            color: #303035;
-            cursor: pointer;
+        a {
             text-decoration: none;
+            color: inherit;
+        }
 
-            &.active {
-                color: $color-brand;
+        .second-search-list {
+            @include flex;
+            @include align-start;
+
+            &.children {
+                padding: 10px 0;
+                margin: 10px 0;
+                border-top: 1px solid #f1f1f1;
+                border-bottom: 1px solid #f1f1f1;
             }
         }
 
-        .second-search-wrap {
+        .second-search-list-left {
+            flex: 1;
             @include flex;
             @include align-start;
-            margin-bottom: 10px;
 
-            .second-search-title {
-                font-weight: bold;
-                width: 60px;
-                line-height: 22px;
-                color: #979797;
+            .second-search-list-title {
+                font-weight: 700;
+                line-height: $linHeight;
+                height: $linHeight;
+
+                a {
+                    display: block;
+                    width: 50px;
+                }
             }
 
-            .second-search-main {
-                max-width: 840px;
+            .second-search-list-main {
                 @include flex;
                 @include align-center;
                 @include flex-wrap;
+            }
 
-                input[type="checkbox"] {
+            .second-search-item {
+                height: 27px;
+                line-height: 27px;
+                min-width: 140px;
+
+                .icon-xiangshang {
                     display: none;
                 }
 
-                .second-search-item {
-                    @include flex;
-                    @include align-center;
-                    width: 110px;
-                    height: 22px;
-                    line-height: 22px;
-                    color: #303035;
-                    cursor: pointer;
-
-                    .checkbox {
-                        display: inline-block;
-                        width: 12px;
-                        height: 12px;
-                        border: 1px solid #C7CED1;
-                        background: rgb(246, 246, 247);
-                        margin-right: 5px;
-                        vertical-align: text-top;
-                        position: relative;
-                    }
+                .icon-xiangxia {
+                    @include inline-flex;
                 }
 
-                input[type="checkbox"]:checked + .second-search-item {
+                &.active {
                     color: $color-brand;
                     font-weight: 700;
 
-                    .checkbox:after {
-                        content: '';
-                        position: absolute;
-                        width: 4px;
-                        height: 8px;
-                        color: black;
-                        border-bottom: 2px solid $color-brand;
-                        border-right: 2px solid $color-brand;
-                        left: 50%;
-                        top: 20%;
-                        transform-origin: center;
-                        transform: translate(-50%, -30%) rotate(40deg);
-                        -webkit-transform: translate(-50%, -30%) rotate(40deg);
+                    .icon-xiangshang {
+                        @include inline-flex;
                     }
-                }
-            }
 
-            .second-search-tool {
-                .second-search-link {
-                    color: #A7A8A9;
-                    cursor: pointer;
-                    height: 22px;
-                    line-height: 22px;
-                }
-
-                .second-search-input {
-                    width: 45px;
-                    height: 20px;
-                    background: rgb(255, 255, 255);
-                    border: 1px solid rgb(236, 236, 241);
-                    padding: 0 3px;
-                }
-
-                .second-search-btn {
-                    width: 51px;
-                    height: 20px;
-                    background: $color-brand;
-                    color: #fff;
-                    margin-left: 10px;
-                    border: none;
+                    .icon-xiangxia {
+                        display: none;
+                    }
                 }
             }
         }
 
-        .second-search-other {
-            border-top: 1px solid #F1F1F1;
-            border-bottom: 1px solid #F1F1F1;
-            @include align-center;
-
-            .second-search-main {
-                max-width: none;
-
-                .second-search-item {
-                    @include flex;
-                    @include justify-center;
-                    @include align-center;
-                    width: 90px;
-                    height: 50px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-
-                    &:hover {
-                        background-color: rgb(241, 241, 241);
-                        font-weight: 600;
-                    }
-
-                    .iconfont {
-                        font-size: 10px;
-                        color: $text-color-secondary;
-                        margin-left: 4px;
-                    }
-
-                    &.active {
-                        color: $color-brand;
-                        font-weight: 600;
-                    }
-                }
-
+        .second-search-list-right {
+            a {
+                display: flex;
+                width: 100px;
+                color: #9399a5;
+                cursor: pointer;
+                line-height: $linHeight;
+                height: $linHeight;
             }
         }
 
         .second-search-more {
-            margin-bottom: 0;
-            padding: 0 15px;
+            .second-search-more-btn {
+                color: #9399a5;
+                cursor: pointer;
+                margin-top: 10px;
+                text-align: center;
+                line-height: $linHeight;
+                height: $linHeight;
+
+                .second-search-more-btn1 {
+                    display: none;
+                }
+
+                .second-search-more-btn2 {
+                    display: inline;
+                }
+
+                .icon-xiangshang {
+                    @include inline-flex;
+                }
+
+                .icon-xiangxia {
+                    display: none;
+                }
+
+                &.active {
+                    .second-search-more-btn1 {
+                        display: inline;
+                    }
+
+                    .second-search-more-btn2 {
+                        display: none;
+                    }
+
+                    .icon-xiangshang {
+                        display: none;
+                    }
+
+                    .icon-xiangxia {
+                        @include inline-flex;
+                    }
+                }
+
+
+            }
+
+            .second-search-more-wrap {
+
+            }
         }
     }
 
@@ -1638,64 +1624,64 @@ $otherHeight: 128px;
             }
         }
     }
-}
 
-.vr-animation-forever {
-    width: 42px;
-    height: 42px;
-    position: absolute;
-    z-index: 1;
-    left: 50%;
-    top: 50%;
-    margin-left: -21px;
-    margin-top: -21px;
-    line-height: 31px;
-    background: rgba(0, 0, 0, .6);
-    border-radius: 100px;
-    background: url(/public/image/vr_animation.png);
-    background-position-y: 0;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    border: 1px solid hsla(0, 0%, 100%, .8);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
-    -webkit-animation: vr 3s steps(80) infinite;
-    animation: vr 3s steps(80) infinite;
+    .vr-animation-forever {
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 50%;
+        margin-left: -21px;
+        margin-top: -21px;
+        line-height: 31px;
+        background: rgba(0, 0, 0, .6);
+        border-radius: 100px;
+        background: url(/public/image/vr_animation.png);
+        background-position-y: 0;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        border: 1px solid hsla(0, 0%, 100%, .8);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+        -webkit-animation: vr 3s steps(80) infinite;
+        animation: vr 3s steps(80) infinite;
 
-    &.vricon {
-        width: 28px;
-        height: 28px;
-        left: 10px;
+        &.vricon {
+            width: 28px;
+            height: 28px;
+            left: 10px;
+            bottom: 10px;
+            top: auto;
+            margin-left: 0;
+            margin-top: 0;
+        }
+    }
+
+    .play_btn {
+        position: absolute;
+        left: 47px;
         bottom: 10px;
-        top: auto;
-        margin-left: 0;
-        margin-top: 0;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        font-size: 0;
+        background: url(/public/image/playiconSamll.png) 0 0 no-repeat;
+        z-index: 1;
+
+        &.only {
+            left: 10px;
+        }
     }
-}
 
-.play_btn {
-    position: absolute;
-    left: 47px;
-    bottom: 10px;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    font-size: 0;
-    background: url(/public/image/playiconSamll.png) 0 0 no-repeat;
-    z-index: 1;
-
-    &.only {
-        left: 10px;
+    @-webkit-keyframes vr {
+        to {
+            background-position-y: 100%
+        }
     }
-}
 
-@-webkit-keyframes vr {
-    to {
-        background-position-y: 100%
-    }
-}
-
-@keyframes vr {
-    to {
-        background-position-y: 100%
+    @keyframes vr {
+        to {
+            background-position-y: 100%
+        }
     }
 }

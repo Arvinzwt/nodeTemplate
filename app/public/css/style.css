@@ -1,16 +1,4 @@
 @charset "UTF-8";
-body {
-  color: #606266;
-  font-size: 14px;
-  font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, SimSun, sans-serif;
-}
-
-ul, li, p {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 input::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #BDBDBD;
@@ -69,6 +57,17 @@ input::-webkit-input-placeholder {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.wmm-nav body, .wmm-header body, .wmm-index-header body, .wmm-menu body, .wmm-footer body, .wmm-other-wrap body, .wmm-supermarket body, .wmm-second body {
+  color: #606266;
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC, Microsoft YaHei, SimSun, sans-serif;
+}
+.wmm-nav ul, .wmm-nav li, .wmm-nav p, .wmm-header ul, .wmm-header li, .wmm-header p, .wmm-index-header ul, .wmm-index-header li, .wmm-index-header p, .wmm-menu ul, .wmm-menu li, .wmm-menu p, .wmm-footer ul, .wmm-footer li, .wmm-footer p, .wmm-other-wrap ul, .wmm-other-wrap li, .wmm-other-wrap p, .wmm-supermarket ul, .wmm-supermarket li, .wmm-supermarket p, .wmm-second ul, .wmm-second li, .wmm-second p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 /*nav*/
@@ -612,6 +611,7 @@ input::-webkit-input-placeholder {
   -o-transform: translateX(30px);
 }
 
+/*搜索框*/
 .wmm-header .header-input, .wmm-index-header .header-input {
   position: relative;
 }
@@ -915,6 +915,7 @@ input::-webkit-input-placeholder {
   color: #828282;
 }
 
+/*房超市*/
 .wmm-supermarket {
   display: -webkit-box;
   /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
@@ -1063,6 +1064,7 @@ input::-webkit-input-placeholder {
   color: #ffffff;
 }
 
+/*二手房*/
 .wmm-second {
   padding: 20px 0;
 }
@@ -1073,22 +1075,13 @@ input::-webkit-input-placeholder {
   padding: 15px;
   border: 1px solid #EDEEF0;
   background-color: #FDFBFC;
-  font-size: 0;
   font-size: 12px;
 }
-.wmm-second .second-search .second-search-main-item {
-  display: block;
-  width: 50px;
-  height: 22px;
-  line-height: 22px;
-  color: #303035;
-  cursor: pointer;
+.wmm-second .second-search a {
   text-decoration: none;
+  color: inherit;
 }
-.wmm-second .second-search .second-search-main-item.active {
-  color: #3391FF;
-}
-.wmm-second .second-search .second-search-wrap {
+.wmm-second .second-search .second-search-list {
   display: -webkit-box;
   /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
   display: -moz-box;
@@ -1105,16 +1098,42 @@ input::-webkit-input-placeholder {
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
-  margin-bottom: 10px;
 }
-.wmm-second .second-search .second-search-wrap .second-search-title {
-  font-weight: bold;
-  width: 60px;
-  line-height: 22px;
-  color: #979797;
+.wmm-second .second-search .second-search-list.children {
+  padding: 10px 0;
+  margin: 10px 0;
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
 }
-.wmm-second .second-search .second-search-wrap .second-search-main {
-  max-width: 840px;
+.wmm-second .second-search .second-search-list-left {
+  flex: 1;
+  display: -webkit-box;
+  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box;
+  /* Firefox 17- */
+  display: -webkit-flex;
+  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex;
+  /* Firefox 18+ */
+  display: -ms-flexbox;
+  /* IE 10 */
+  display: flex;
+  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+  -webkit-align-items: flex-start;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.wmm-second .second-search .second-search-list-left .second-search-list-title {
+  font-weight: 700;
+  line-height: 27px;
+  height: 27px;
+}
+.wmm-second .second-search .second-search-list-left .second-search-list-title a {
+  display: block;
+  width: 50px;
+}
+.wmm-second .second-search .second-search-list-left .second-search-list-main {
   display: -webkit-box;
   /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
   display: -moz-box;
@@ -1136,143 +1155,78 @@ input::-webkit-input-placeholder {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
-.wmm-second .second-search .second-search-wrap .second-search-main input[type=checkbox] {
+.wmm-second .second-search .second-search-list-left .second-search-item {
+  height: 27px;
+  line-height: 27px;
+  min-width: 140px;
+}
+.wmm-second .second-search .second-search-list-left .second-search-item .icon-xiangshang {
   display: none;
 }
-.wmm-second .second-search .second-search-wrap .second-search-main .second-search-item {
-  display: -webkit-box;
-  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
-  display: -moz-box;
-  /* Firefox 17- */
-  display: -webkit-flex;
-  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
-  display: -moz-flex;
-  /* Firefox 18+ */
-  display: -ms-flexbox;
-  /* IE 10 */
-  display: flex;
-  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -moz-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 110px;
-  height: 22px;
-  line-height: 22px;
-  color: #303035;
-  cursor: pointer;
+.wmm-second .second-search .second-search-list-left .second-search-item .icon-xiangxia {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
 }
-.wmm-second .second-search .second-search-wrap .second-search-main .second-search-item .checkbox {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border: 1px solid #C7CED1;
-  background: #f6f6f7;
-  margin-right: 5px;
-  vertical-align: text-top;
-  position: relative;
-}
-.wmm-second .second-search .second-search-wrap .second-search-main input[type=checkbox]:checked + .second-search-item {
+.wmm-second .second-search .second-search-list-left .second-search-item.active {
   color: #3391FF;
   font-weight: 700;
 }
-.wmm-second .second-search .second-search-wrap .second-search-main input[type=checkbox]:checked + .second-search-item .checkbox:after {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 8px;
-  color: black;
-  border-bottom: 2px solid #3391FF;
-  border-right: 2px solid #3391FF;
-  left: 50%;
-  top: 20%;
-  transform-origin: center;
-  transform: translate(-50%, -30%) rotate(40deg);
-  -webkit-transform: translate(-50%, -30%) rotate(40deg);
+.wmm-second .second-search .second-search-list-left .second-search-item.active .icon-xiangshang {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
 }
-.wmm-second .second-search .second-search-wrap .second-search-tool .second-search-link {
-  color: #A7A8A9;
-  cursor: pointer;
-  height: 22px;
-  line-height: 22px;
+.wmm-second .second-search .second-search-list-left .second-search-item.active .icon-xiangxia {
+  display: none;
 }
-.wmm-second .second-search .second-search-wrap .second-search-tool .second-search-input {
-  width: 45px;
-  height: 20px;
-  background: white;
-  border: 1px solid #ececf1;
-  padding: 0 3px;
-}
-.wmm-second .second-search .second-search-wrap .second-search-tool .second-search-btn {
-  width: 51px;
-  height: 20px;
-  background: #3391FF;
-  color: #fff;
-  margin-left: 10px;
-  border: none;
-}
-.wmm-second .second-search .second-search-other {
-  border-top: 1px solid #F1F1F1;
-  border-bottom: 1px solid #F1F1F1;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -moz-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-.wmm-second .second-search .second-search-other .second-search-main {
-  max-width: none;
-}
-.wmm-second .second-search .second-search-other .second-search-main .second-search-item {
-  display: -webkit-box;
-  /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
-  display: -moz-box;
-  /* Firefox 17- */
-  display: -webkit-flex;
-  /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
-  display: -moz-flex;
-  /* Firefox 18+ */
-  display: -ms-flexbox;
-  /* IE 10 */
+.wmm-second .second-search .second-search-list-right a {
   display: flex;
-  /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -moz-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -moz-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 90px;
-  height: 50px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  width: 100px;
+  color: #9399a5;
+  cursor: pointer;
+  line-height: 27px;
+  height: 27px;
 }
-.wmm-second .second-search .second-search-other .second-search-main .second-search-item:hover {
-  background-color: #f1f1f1;
-  font-weight: 600;
+.wmm-second .second-search .second-search-more .second-search-more-btn {
+  color: #9399a5;
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 27px;
+  height: 27px;
 }
-.wmm-second .second-search .second-search-other .second-search-main .second-search-item .iconfont {
-  font-size: 10px;
-  color: #828282;
-  margin-left: 4px;
+.wmm-second .second-search .second-search-more .second-search-more-btn .second-search-more-btn1 {
+  display: none;
 }
-.wmm-second .second-search .second-search-other .second-search-main .second-search-item.active {
-  color: #3391FF;
-  font-weight: 600;
+.wmm-second .second-search .second-search-more .second-search-more-btn .second-search-more-btn2 {
+  display: inline;
 }
-.wmm-second .second-search .second-search-more {
-  margin-bottom: 0;
-  padding: 0 15px;
+.wmm-second .second-search .second-search-more .second-search-more-btn .icon-xiangshang {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+.wmm-second .second-search .second-search-more .second-search-more-btn .icon-xiangxia {
+  display: none;
+}
+.wmm-second .second-search .second-search-more .second-search-more-btn.active .second-search-more-btn1 {
+  display: inline;
+}
+.wmm-second .second-search .second-search-more .second-search-more-btn.active .second-search-more-btn2 {
+  display: none;
+}
+.wmm-second .second-search .second-search-more .second-search-more-btn.active .icon-xiangshang {
+  display: none;
+}
+.wmm-second .second-search .second-search-more .second-search-more-btn.active .icon-xiangxia {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
 }
 .wmm-second .second-body {
   display: -webkit-box;
@@ -1985,8 +1939,7 @@ input::-webkit-input-placeholder {
   color: #fe5d55;
   line-height: 20px;
 }
-
-.vr-animation-forever {
+.wmm-second .vr-animation-forever {
   width: 42px;
   height: 42px;
   position: absolute;
@@ -2007,7 +1960,7 @@ input::-webkit-input-placeholder {
   -webkit-animation: vr 3s steps(80) infinite;
   animation: vr 3s steps(80) infinite;
 }
-.vr-animation-forever.vricon {
+.wmm-second .vr-animation-forever.vricon {
   width: 28px;
   height: 28px;
   left: 10px;
@@ -2016,8 +1969,7 @@ input::-webkit-input-placeholder {
   margin-left: 0;
   margin-top: 0;
 }
-
-.play_btn {
+.wmm-second .play_btn {
   position: absolute;
   left: 47px;
   bottom: 10px;
@@ -2028,10 +1980,9 @@ input::-webkit-input-placeholder {
   background: url(/public/image/playiconSamll.png) 0 0 no-repeat;
   z-index: 1;
 }
-.play_btn.only {
+.wmm-second .play_btn.only {
   left: 10px;
 }
-
 @-webkit-keyframes vr {
   to {
     background-position-y: 100%;
