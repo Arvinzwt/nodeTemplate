@@ -183,8 +183,19 @@ input::-webkit-input-placeholder { /* WebKit browsers */
 }
 
 /*nav*/
+$navHeight: 44px;
 .wmm-nav {
     background: $color-brand;
+    height: $navHeight;
+
+    .wmm-nav-wrap.active {
+        background: $color-brand;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 9999;
+    }
 
     .wrap {
         @include flex;
@@ -202,7 +213,7 @@ input::-webkit-input-placeholder { /* WebKit browsers */
         @include align-center;
         @include justify-center;
         position: relative;
-        height: 44px;
+        height: $navHeight;
         color: $color-white;
         text-decoration: none;
         font-weight: 500;

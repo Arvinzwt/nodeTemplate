@@ -73,6 +73,15 @@ input::-webkit-input-placeholder {
 /*nav*/
 .wmm-nav {
   background: #3391FF;
+  height: 44px;
+}
+.wmm-nav .wmm-nav-wrap.active {
+  background: #3391FF;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
 }
 .wmm-nav .wrap {
   display: -webkit-box;
