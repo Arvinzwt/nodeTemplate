@@ -1,8 +1,25 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+/*#person {*/
+/*    height: 180px;*/
+/*    width: 180px;*/
+/*    border: 1px solid red;*/
+/*    border-radius: 50%;*/
+/*}*/
 
-a {
-  color: #00B7FF;
+/*#header {*/
+/*    border: 1px solid red;*/
+/*}*/
+
+/*#body {*/
+/*    border: 1px solid red;*/
+/*}*/
+
+/*#arm {*/
+/*    border: 1px solid red;*/
+/*}*/
+
+/*#leg {*/
+/*    border: 1px solid red;*/
+/*}*/
+canvas {
+
 }

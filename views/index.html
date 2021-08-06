@@ -1,0 +1,83 @@
+<%- include('header.html') -%>
+<body>
+<canvas id="canvas"></canvas>
+<!--<div id="person">-->
+<!--    <div id="header"></div>-->
+<!--    <div id="body"></div>-->
+<!--    <div id="arm"></div>-->
+<!--    <div id="leg"></div>-->
+<!--</div>-->
+<script>
+    let canvas, ctx;
+    let cw = 180;
+    let requestAnimationFrame = window.requestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            window.oRequestAnimationFrame ||
+            (fn => setTimeout(fn, 17));
+    let cancelAnimationFrame = window.cancelAnimationFrame ||
+            window.webkitCancelAnimationFrame ||
+            window.mozCancelAnimationFrame ||
+            window.msCancelAnimationFrame ||
+            window.oCancelAnimationFrame ||
+            clearTimeout;
+
+
+    init();
+    loop();
+
+    function init() {
+        canvas = document.querySelector('#canvas');
+        canvas.width = canvas.height = cw;
+        canvas.style.width = canvas.style.height = cw;
+        ctx = canvas.getContext('2d');
+    }
+
+    function loop() {
+        ctx.clearRect(0, 0, cw, cw);
+        render();
+        requestAnimationFrame(loop)
+    }
+
+    function render() {
+        ctx.beginPath();
+        ctx.arc(cw / 2, cw / 2, cw / 2, 0, angle(360));
+        ctx.stroke();
+
+
+        ctx.beginPath();
+        ctx.lineTo(cw / 2, 0);
+        ctx.lineTo(cw / 2, cw);
+        ctx.stroke();
+
+
+    }
+
+    function angle(n) {
+        return Math.PI / 180 * n;
+    }
+
+
+    // 达&S226;芬奇的这幅素描《维特鲁威人》最近出现在意大利发行的一欧元硬币上，表明该作品受人喜爱的程度并未消减。对于这幅画，列昂纳多自己阐述：建筑师维特鲁威斯在他的建筑论文中声言，他测量人体的方法如下：4指为一掌，4掌为一脚，6掌为一腕尺，4腕尺为一人的身高。4腕尺又为一跨步，24掌为人体总长。两臂侧伸的长度，与身高等同。从发际到下巴的距离，为身高的十分之一。自下巴至脑顶，为身高的八分之一。胸上到发际，为身高的七分之一。乳头到脑顶，为身高的四分之一。肩宽的最大跨度，是身高的四分之一。臂肘到指根是身高的五分之一，到腋窝夹角是身高的八分之一。手的全长为身高的十分之一。下巴到鼻尖、发际到眉线的距离均与耳长相同，都是脸长的三分之一。
+    // 4指为一掌
+    // 4掌为一脚
+    // 6掌为一腕尺
+    // 4腕尺为一人的身高
+    // 4腕尺又为一跨步
+    // 24掌为人体总长
+    // 两臂侧伸的长度，与身高等同。
+    // 从发际到下巴的距离，为身高的十分之一。
+    // 自下巴至脑顶，为身高的八分之一。
+    // 胸上到发际，为身高的七分之一。
+    // 乳头到脑顶，为身高的四分之一。
+    // 肩宽的最大跨度，是身高的四分之一。
+    // 臂肘到指根是身高的五分之一，到腋窝夹角是身高的八分之一。
+    // 手的全长为身高的十分之一。
+    // 下巴到鼻尖、发际到眉线的距离均与耳长相同，都是脸长的三分之一。
+</script>
+</body>
+<%- include('footer.html') -%>
+
+
+
