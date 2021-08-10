@@ -1,0 +1,25 @@
+<%- include('../header.html') -%>
+<body>
+<div id="app">
+    <button id="btn">点击下载</button>
+</div>
+<script>
+    let btn = document.querySelector('#btn');
+
+    btn.onclick = function () {
+        axios.post('/api/pdfCreate', {
+            "url": "https://www.baidu.com/",
+        }).then(function (response) {
+            console.log(response.data.url, 'response')
+            let a = document.createElement('a');
+            a.href = response.data.url;
+            a.target = '_blank';
+            a.innerHTML = '点我'
+            document.body.append(a);
+        }).catch(function (error) {
+            console.log(error, 'error')
+        });
+    }
+</script>
+</body>
+<%- include('../footer.html') -%>

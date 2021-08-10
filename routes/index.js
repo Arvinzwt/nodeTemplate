@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/lc', function (req, res, next) {
-    res.render('leetcood', {title: 'Express'});
+    res.render('pages/lc', {title: 'Express'});
 });
 
 module.exports = router;
