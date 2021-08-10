@@ -1,0 +1,18 @@
+<%- include('header.html') -%>
+<body>
+<div id="app">
+    <button id="btn">点击下载</button>
+</div>
+<script>
+    let btn = document.querySelector('#btn');
+
+    btn.onclick = function () {
+        axios.post('/api/pdfCreate').then(function (response) {
+            console.log(response, 'response')
+        }).catch(function (error) {
+            console.log(error, 'error')
+        });
+    }
+</script>
+</body>
+<%- include('footer.html') -%>

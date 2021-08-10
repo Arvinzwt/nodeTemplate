@@ -1,25 +1,3 @@
-/*#person {*/
-/*    height: 180px;*/
-/*    width: 180px;*/
-/*    border: 1px solid red;*/
-/*    border-radius: 50%;*/
-/*}*/
-
-/*#header {*/
-/*    border: 1px solid red;*/
-/*}*/
-
-/*#body {*/
-/*    border: 1px solid red;*/
-/*}*/
-
-/*#arm {*/
-/*    border: 1px solid red;*/
-/*}*/
-
-/*#leg {*/
-/*    border: 1px solid red;*/
-/*}*/
 canvas {
-
+    box-sizing: border-box;
 }
