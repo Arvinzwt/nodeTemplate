@@ -1,41 +1,37 @@
 <%- include('header.html') -%>
 <body>
-<canvas id="canvas" style="border: 1px solid red;"></canvas>
+<div class="wrap">
+    <canvas id="canvas" width="500" height="100" style="border: 1px solid red;"></canvas>
+</div>
 <script>
     let canvas = document.querySelector('#canvas');
     let ctx = canvas.getContext('2d');
-    let cw = window.innerWidth;
-    let ch = window.innerHeight;
-    let cell = 30;
-    let points = [];
-    let arcPoint = {}
+    // let cw = window.innerWidth;
+    // let ch = window.innerHeight;
+    let cw = canvas.width;
+    let ch = canvas.height;
     let count = 0;
+    let config = {
+        star_x: 'center',
+        star_y: 'center',
+        cell: 8,
+        long: 2,
+        angle: 45,
+        gap: 1,
+        interval: 10,
+    }
 
     init();
     bindEvent();
     loop();
 
     function init() {
-        cw = window.innerWidth;
-        ch = window.innerHeight;
-        canvas.width = cw;
-        canvas.height = ch;
-        canvas.style.width = cw;
-        canvas.style.height = ch;
-
-        for (let i = 0; i < 64; i++) {
-            points.push(renderCell(i, false))
-        }
-        {
-            let b = Math.sqrt(Math.pow(cell * 3, 2) - Math.pow(1.5 * cell, 2));
-            arcPoint = locate(
-                    points[3].x - b,
-                    points[3].y,
-                    points[5].x + b,
-                    points[5].y,
-                    points[60].x,
-                    points[60].y + cell)
-        }
+        // cw = window.innerWidth;
+        // ch = window.innerHeight;
+        // canvas.width = cw;
+        // canvas.height = ch;
+        // canvas.style.width = cw;
+        // canvas.style.height = ch;
     }
 
     function bindEvent() {
@@ -63,102 +59,140 @@
     }
 
     function update() {
-        count += 0.1;
-
-        // let date = new Date();
-        // let seconds = date.getSeconds();
-
-        ctx.beginPath();
-        let point = renderCell(count % 64, false)
-        ctx.fillRect(point.x, point.y, cell, cell)
-
-        ctx.font = '110px sans-serif'
-        ctx.textAlign = 'center'
-        ctx.textBaseline = 'middle'
-        ctx.strokeText(Math.floor(count % 64), cw / 2, ch / 2);
+        count++
     }
 
     function render() {
-        // ctx.beginPath();
-        // ctx.rect(points[0].x, points[0].y, cell * 8, cell * 8);
-        // ctx.stroke();
-        //
-        // ctx.beginPath();
-        // ctx.arc(arcPoint.x, arcPoint.y, arcPoint.r, 0, angle(360));
-        // ctx.stroke();
-        //
-        for (let i = 0; i < points.length; i++) {
-            renderCell(i);
+        let date = new Date();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+
+        renderNumber(`${h}:${m}:${s}`)
+    }
+
+    // 计算七个笔画
+    function setPoints() {
+        let p1 = [];
+        let {star_x, star_y, cell, long, angle, gap, interval} = config;
+        let {face, oppo} = hypotenuse(long, Math.PI / 180 * angle);
+
+        star_x = star_x + oppo;
+        star_y = star_y + oppo;
+
+        let horizontal = [
+            [star_x, star_y],
+            [star_x + face, star_y - oppo],
+            [star_x + cell + face, star_y - oppo],
+            [star_x + cell + face * 2, star_y],
+            [star_x + cell + face, star_y + oppo],
+            [star_x + face, star_y + oppo],
+        ];
+        let vertical = [
+            [star_x, star_y + gap],
+            [star_x - oppo, star_y + gap + face],
+            [star_x - oppo, star_y + gap + face + cell],
+            [star_x, star_y + gap + face * 2 + cell],
+            [star_x + oppo, star_y + gap + face + cell],
+            [star_x + oppo, star_y + gap + face],
+        ];
+
+        // 填充横线
+        let horList = [
+            [0, 0],
+            [0, cell * 1 + face * 2 + gap * 2],
+            [0, cell * 2 + face * 4 + gap * 4],
+        ];
+
+        horList.forEach(lines => {
+            p1.push(horizontal.map(item => {
+                return [item[0] + lines[0], item[1] + lines[1]]
+            }))
+        })
+
+        // 填充竖线
+        let verList = [
+            [0, 0],
+            [cell + face * 2, 0],
+            [0, cell + face * 2 + gap * 2],
+            [cell + face * 2, cell + face * 2 + gap * 2],
+
+        ]
+
+        verList.forEach(lines => {
+            p1.push(vertical.map(item => {
+                return [item[0] + lines[0], item[1] + lines[1]]
+            }))
+        })
+
+
+        return p1;
+    }
+
+    // 渲染
+    function renderNumber(str) {
+        let target = str + '';
+        let {face, oppo} = hypotenuse(config.long, Math.PI / 180 * config.angle);
+        let sw = config.cell + face * 2 + oppo * 2;
+        let sh = config.cell * 2 + oppo * 2 + face * 4 + config.gap * 4;
+        let pw = oppo * 2;
+
+        if (config.star_x === 'center') {
+            config.star_x = cw / 2 - ((sw + config.interval) * target.length - config.interval) / 2;
+        }
+        if (config.star_y === 'center') {
+            config.star_y = ch / 2 - sh / 2;
+        }
+        let points = setPoints(config);
+        let numbers = [
+            [0, 2, 3, 4, 5, 6],
+            [4, 6],
+            [0, 1, 2, 4, 5],
+            [0, 1, 2, 4, 6],
+            [3, 4, 1, 6],
+            [0, 3, 1, 2, 6],
+            [0, 1, 2, 3, 5, 6],
+            [0, 4, 6],
+            [0, 1, 2, 3, 4, 5, 6],
+            [0, 1, 2, 3, 4, 6],
+        ];
+
+        for (let i = 0; i < target.length; i++) {
+            // ctx.strokeStyle = 'red';
+            // ctx.beginPath();
+            // ctx.rect(config.star_x + (sw + config.interval) * i, config.star_y, sw, sh)
+            // ctx.stroke();
+            //
+            // ctx.strokeStyle = '#000000';
+            switch (target[i]) {
+                case ':':
+                    ctx.beginPath();
+                    ctx.rect((sw + config.interval) * i + sw / 2 - pw / 2 + config.star_x, config.star_y + sh / 3 * 2, pw, pw)
+                    ctx.rect((sw + config.interval) * i + sw / 2 - pw / 2 + config.star_x, config.star_y + sh - pw - sh / 3 * 2, pw, pw)
+                    ctx.stroke();
+                    break;
+                default:
+                    let alphabet = numbers[+target[i]]
+                    for (let j = 0; j < alphabet.length; j++) {
+                        ctx.beginPath();
+                        points[alphabet[j]].forEach(point => {
+                            ctx.lineTo(point[0] + (sw + config.interval) * i, point[1]);
+                        })
+                        ctx.closePath();
+                        ctx.stroke();
+                    }
+                    break;
+            }
         }
     }
 
     // 通过斜边和角度计算领边和对边
     function hypotenuse(long, angle) {
         return {
-            a: Math.sin(angle) * long,//邻边
-            b: Math.cos(angle) * long//对边
+            face: Math.sin(angle) * long,//邻边
+            oppo: Math.cos(angle) * long//对边
         };
     }
-
-    // 根据三点坐标求圆心和半径
-    function locate(x1, y1, x2, y2, x3, y3) {
-        let a, b, c, g, e, f;
-        let x, y, r;
-        a = 2 * (x3 - x2);
-        b = 2 * (y3 - y2);
-        c = x3 * x3 - x2 * x2 + y3 * y3 - y2 * y2;
-        e = 2 * (x2 - x1);
-        f = 2 * (y2 - y1);
-        g = x2 * x2 - x1 * x1 + y2 * y2 - y1 * y1;
-        x = (g * b - c * f) / (e * b - a * f);
-        y = (a * g - c * e) / (a * f - b * e);
-        r = Math.sqrt((x - x1) * (x - x1) + (y - y1) * (y - y1));
-        return {x, y, r};
-    }
-
-    // 渲染独立方块
-    function renderCell(n, type = true) {
-        let point = {
-            x: n % 8 * cell + cw / 2 - cell * 4,
-            y: Math.floor(n / 8) * cell + ch / 2 - cell * 4,
-        }
-        if (type) {
-            ctx.beginPath();
-            ctx.rect(point.x, point.y, cell, cell);
-            ctx.stroke();
-        }
-
-        // ctx.font = '16px sans-serif'
-        // ctx.textAlign = 'center'
-        // ctx.textBaseline = 'middle'
-        // ctx.strokeText(n, point.x + cell / 2, point.y + cell / 2)
-
-        return point
-    }
-
-    // 计算角度
-    function angle(n) {
-        return Math.PI / 180 * n;
-    }
-
-
-    // 两臂侧伸的长度，与身高等同。
-    // 自脑顶至下巴的距离，为身高的八分之一。
-    // 从发际到下巴的距离，为身高的十分之一。
-    // 肩宽的最大跨度，是身高的四分之一。
-    // 手的全长为身高的十分之一。
-
-    // 4指为一掌，
-    // 4掌为一脚，
-    // 6掌为一腕尺，
-    // 4腕尺为一人的身高。
-    // 4腕尺又为一跨步，
-    // 24掌为人体总长。
-    // 胸上到发际，为身高的七分之一。
-    // 乳头到脑顶，为身高的四分之一。
-    // 臂肘到指根是身高的五分之一，到腋窝夹角是身高的八分之一。
-
-    // 下巴到鼻尖、发际到眉线的距离均与耳长相同，都是脸长的三分之一。
 </script>
 </body>
 <%- include('footer.html') -%>
