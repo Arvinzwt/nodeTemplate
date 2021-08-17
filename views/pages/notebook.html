@@ -1,0 +1,235 @@
+<%- include('../header.html') -%>
+<style>
+    #app {
+        max-width: 992px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .ul .li {
+        padding: 10px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #88888888;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .ul .li .label {
+        display: flex;
+        align-items: center;
+    }
+
+    .ul .li .txt {
+        margin-left: 10px;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 20px;
+    }
+
+    .header button {
+        margin-left: 20px;
+    }
+
+    .dialog {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        display: none;
+    }
+
+    .dialog .model {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .dialog .main {
+        position: absolute;
+        width: 300px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+        z-index: 2;
+        padding: 20px;
+    }
+
+    .dialog .main .footer {
+        text-align: right;
+        padding-top: 20px;
+    }
+
+    .dialog .main label {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+
+    }
+
+    .dialog .main input[type='text'], .dialog .main textarea {
+        flex: 1;
+    }
+</style>
+<body>
+
+<div id="app">
+    <div class="header">
+        <label for="">
+            <input type="text" id="search-input" value="">
+        </label>
+        <button onclick="queryList()">搜索</button>
+        <button onclick="openDialog()">新增</button>
+    </div>
+    <ul class="ul" id="wrap"></ul>
+</div>
+<div class="dialog">
+    <div class="model"></div>
+    <div class="main">
+        <label for="">是否选中：
+            <input id="checked-input" type="checkbox"/>
+        </label>
+        <label for="">标题：
+            <input type="text" id="title-input" value="" placeholder="请输入标题">
+        </label>
+
+        <div class="footer">
+            <button onclick="closeDialog()">取消</button>
+            <button onclick="addList()">确定</button>
+        </div>
+    </div>
+</div>
+<script>
+    let wrap = document.querySelector('#wrap');
+    let searchInput = document.querySelector('#search-input');
+    let titleInput = document.querySelector('#title-input');
+    let checkedInput = document.querySelector('#checked-input');
+    let dialog = document.querySelector('.dialog');
+    let editObj = null;
+
+    queryList();
+
+    searchInput.addEventListener('keyup', function (ev) {
+        if (ev.key === 'Enter') {
+            queryList();
+        }
+    }, false)
+
+    wrap.addEventListener('click', async function (ev) {
+        let classList = ev.target.className.split(/\s+/);
+        if (classList.includes('operateBtn')) {
+            let id = ev.target.getAttribute('data-id');
+            let target = await axios.post('/mysql/getDetail', {id}).then(res => res.data.rows).catch(err => false)
+
+            // 删除
+            if (classList.includes('deleteBtn')) {
+                axios.post('/mysql/deleteList', {id: target.id}).then(() => {
+                    queryList();
+                }).catch(err => {
+                    console.log(err)
+                })
+            }
+
+            // 编辑
+            if (classList.includes('editBtn')) {
+                titleInput.value = target.title;
+                checkedInput.checked = target.checked;
+                editObj = target;
+                openDialog();
+            }
+
+            // 修改选中
+            if (classList.includes('li-check')) {
+                axios.post('/mysql/editList', {
+                    id: target.id,
+                    title: target.title,
+                    checked: Number(!target.checked),
+                }).then(() => {
+                    return queryList();
+                })
+            }
+        }
+    })
+
+    function queryList() {
+        return axios.post('/mysql/getList', {query: searchInput.value}).then(res => {
+            let rows = res.data.rows.data.sort((a, b) => a.sort - b.sort);
+            wrap.innerHTML = '';
+            rows.forEach(item => {
+                let li = document.createElement('li');
+                li.className = 'li item';
+                li.innerHTML = `<label class="label" for="">
+                                    <input data-id="${item.id}" class="operateBtn li-check" type="checkbox" ${item.checked ? 'checked' : ''}/>
+                                    <span class="txt">${item.title}</span>
+                                </label>
+                                <label>
+                                    <input data-id="${item.id}" class="operateBtn deleteBtn" type="button" value="删除"/>
+                                    <input data-id="${item.id}" class="operateBtn editBtn"  type="button" value="编辑"/>
+                                </label>`
+                wrap.appendChild(li)
+            })
+
+            if (rows.length === 0) {
+                let li = document.createElement('li');
+                li.innerHTML = `<label class="label" for="">暂无数据</label>`
+                wrap.appendChild(li)
+            }
+            return rows;
+        }).catch(err => {
+            return []
+        })
+    }
+
+    function openDialog() {
+        dialog.style.display = 'block'
+    }
+
+    function closeDialog() {
+        editObj = null;
+        dialog.style.display = 'none'
+    }
+
+    function addList() {
+        if (titleInput.value) {
+            if (editObj) {
+                axios.post('/mysql/editList', {
+                    id: editObj.id,
+                    title: titleInput.value,
+                    checked: Number(checkedInput.checked),
+                }).then(() => {
+                    return queryList();
+                }).then(() => {
+                    closeDialog()
+                }).catch(err => {
+                    console.log(err)
+                })
+            } else {
+                axios.post('/mysql/addList', {
+                    title: titleInput.value,
+                    checked: Number(checkedInput.checked),
+                }).then(() => {
+                    return queryList();
+                }).then(() => {
+                    closeDialog()
+                }).catch(err => {
+                    console.log(err)
+                })
+            }
+
+        } else {
+            alert('请输入标题')
+        }
+    }
+</script>
+</body>
+<%- include('../footer.html') -%>
