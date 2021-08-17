@@ -1,24 +1,28 @@
 <%- include('../header.html') -%>
 <body>
 <div id="app">
+    <input id="input" type="text">
     <button id="btn">点击下载</button>
 </div>
 <script>
     let btn = document.querySelector('#btn');
+    let input = document.querySelector('#input');
 
     btn.onclick = function () {
-        axios.post('/api/pdfCreate', {
-            "url": "https://www.baidu.com/",
-        }).then(function (response) {
-            console.log(response.data.url, 'response')
-            let a = document.createElement('a');
-            a.href = response.data.url;
-            a.target = '_blank';
-            a.innerHTML = '点我'
-            document.body.append(a);
-        }).catch(function (error) {
-            console.log(error, 'error')
-        });
+        if(input.value){
+            axios.post('/api/pdfCreate', {
+                "url": input.value
+            }).then(function (response) {
+               alert('下载成功')
+                let a = document.createElement('a');
+                a.href = response.data.url;
+                a.target = '_blank';
+                a.innerHTML = '下载内容'
+                document.body.append(a);
+            }).catch(function (error) {
+                console.log(error, 'error')
+            });
+        }
     }
 </script>
 </body>
