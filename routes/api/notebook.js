@@ -27,6 +27,10 @@ function searchMysql(select, callback) {
     connection.end()
 }
 
+router.get('/', function (req, res) {
+    res.send('respond with a resource');
+})
+
 // 获取列表
 router.post('/getList', async function (req, res, next) {
     let query = req.body.query;
@@ -90,7 +94,6 @@ router.post('/editList', async function (req, res, next) {
         })
     })
 })
-
 
 
 module.exports = router;

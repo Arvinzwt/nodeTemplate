@@ -129,11 +129,11 @@
         let classList = ev.target.className.split(/\s+/);
         if (classList.includes('operateBtn')) {
             let id = ev.target.getAttribute('data-id');
-            let target = await axios.post('/mysql/getDetail', {id}).then(res => res.data.rows).catch(err => false)
+            let target = await axios.post('/api/notebook/getDetail', {id}).then(res => res.data.rows).catch(err => false)
 
             // 删除
             if (classList.includes('deleteBtn')) {
-                axios.post('/mysql/deleteList', {id: target.id}).then(() => {
+                axios.post('/api/notebook/deleteList', {id: target.id}).then(() => {
                     queryList();
                 }).catch(err => {
                     console.log(err)
@@ -150,7 +150,7 @@
 
             // 修改选中
             if (classList.includes('li-check')) {
-                axios.post('/mysql/editList', {
+                axios.post('/api/notebook/editList', {
                     id: target.id,
                     title: target.title,
                     checked: Number(!target.checked),
@@ -162,7 +162,7 @@
     })
 
     function queryList() {
-        return axios.post('/mysql/getList', {query: searchInput.value}).then(res => {
+        return axios.post('/api/notebook/getList', {query: searchInput.value}).then(res => {
             let rows = res.data.rows.data.sort((a, b) => a.sort - b.sort);
             wrap.innerHTML = '';
             rows.forEach(item => {
@@ -202,7 +202,7 @@
     function addList() {
         if (titleInput.value) {
             if (editObj) {
-                axios.post('/mysql/editList', {
+                axios.post('/api/notebook/editList', {
                     id: editObj.id,
                     title: titleInput.value,
                     checked: Number(checkedInput.checked),
@@ -214,7 +214,7 @@
                     console.log(err)
                 })
             } else {
-                axios.post('/mysql/addList', {
+                axios.post('/api/notebook/addList', {
                     title: titleInput.value,
                     checked: Number(checkedInput.checked),
                 }).then(() => {

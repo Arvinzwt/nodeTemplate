@@ -1,3 +1,4 @@
+var fs = require('fs');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,8 +7,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var pagesRouter = require('./routes/pages');
-var apiRouter = require('./routes/api');
-var mysqlRouter = require('./routes/mysql');
+
 
 var app = express();
 var ejs = require('ejs');
@@ -25,8 +25,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/pages', pagesRouter);
-app.use('/api', apiRouter);
-app.use('/mysql', mysqlRouter);
+
+fs.readdirSync(path.join(__dirname, './routes/api')).reverse().forEach((file) => {
+    if (!file.endsWith('.js')) return null;
+    let route = '/api/' + file.replace(/\.js$/i, '').replace(/_/g, '/');
+    let question = require(path.join(__dirname, "/routes/api", file));
+    app.use(route, question)
+})
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

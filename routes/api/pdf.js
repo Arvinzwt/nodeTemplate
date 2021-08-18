@@ -3,11 +3,6 @@ const router = express.Router();
 const {jsPDF} = require("jspdf"); // will automatically load the node version
 const puppeteer = require('puppeteer');
 
-// /* GET users listing. */
-router.get('/', function (req, res, next) {
-    res.send('respond with a resource');
-});
-
 router.post('/pdfCreate', async function (req, res, next) {
     let args = req.body
 

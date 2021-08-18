@@ -1,7 +1,7 @@
 <%- include('../header.html') -%>
 <body>
 <div id="app">
-    <input id="input" type="text">
+    <input id="input" type="text" placeholder="请输入想要转化的网站地址">
     <button id="btn">点击下载</button>
 </div>
 <script>
@@ -10,7 +10,7 @@
 
     btn.onclick = function () {
         if(input.value){
-            axios.post('/api/pdfCreate', {
+            axios.post('/api/pdf/pdfCreate', {
                 "url": input.value
             }).then(function (response) {
                alert('下载成功')
