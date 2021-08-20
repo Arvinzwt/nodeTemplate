@@ -1,17 +1,27 @@
 <%- include('header.html') -%>
+<script src="/javascripts/electronicScreen.js"></script>
+<style>
+    #app {
+        /*max-width: 992px;*/
+        margin: 0 auto;
+    }
+
+    #time {
+        border: 1px solid red;
+        height: 500px;
+    }
+
+    #list li {
+        padding: 10px 20px;
+    }
+</style>
 <body>
-<div class="wrap">
-    <canvas id="canvas" width="500" height="100" style="border: 1px solid red;"></canvas>
+<div id="app">
+    <div id="time"></div>
+    <ul id="list"></ul>
 </div>
 <script>
-    let canvas = document.querySelector('#canvas');
-    let ctx = canvas.getContext('2d');
-    // let cw = window.innerWidth;
-    // let ch = window.innerHeight;
-    let cw = canvas.width;
-    let ch = canvas.height;
-    let count = 0;
-    let config = {
+    new ElectronicScreen('#time', {
         star_x: 'center',
         star_y: 'center',
         cell: 8,
@@ -19,180 +29,17 @@
         angle: 45,
         gap: 1,
         interval: 10,
-    }
+        border: false,
+    });
 
-    init();
-    bindEvent();
-    loop();
-
-    function init() {
-        // cw = window.innerWidth;
-        // ch = window.innerHeight;
-        // canvas.width = cw;
-        // canvas.height = ch;
-        // canvas.style.width = cw;
-        // canvas.style.height = ch;
-    }
-
-    function bindEvent() {
-        window.addEventListener('resize', init, false)
-    }
-
-    function loop() {
-        let requestAnimationFrame = window.requestAnimationFrame ||
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame ||
-                window.msRequestAnimationFrame ||
-                window.oRequestAnimationFrame ||
-                (fn => setTimeout(fn, 17));
-        let cancelAnimationFrame = window.cancelAnimationFrame ||
-                window.webkitCancelAnimationFrame ||
-                window.mozCancelAnimationFrame ||
-                window.msCancelAnimationFrame ||
-                window.oCancelAnimationFrame ||
-                clearTimeout;
-
-        ctx.clearRect(0, 0, cw, cw);
-        update();
-        render();
-        requestAnimationFrame(loop)
-    }
-
-    function update() {
-        count++
-    }
-
-    function render() {
-        let date = new Date();
-        let h = date.getHours();
-        let m = date.getMinutes();
-        let s = date.getSeconds();
-
-        renderNumber(`${h}:${m}:${s}`)
-    }
-
-    // 计算七个笔画
-    function setPoints() {
-        let p1 = [];
-        let {star_x, star_y, cell, long, angle, gap, interval} = config;
-        let {face, oppo} = hypotenuse(long, Math.PI / 180 * angle);
-
-        star_x = star_x + oppo;
-        star_y = star_y + oppo;
-
-        let horizontal = [
-            [star_x, star_y],
-            [star_x + face, star_y - oppo],
-            [star_x + cell + face, star_y - oppo],
-            [star_x + cell + face * 2, star_y],
-            [star_x + cell + face, star_y + oppo],
-            [star_x + face, star_y + oppo],
-        ];
-        let vertical = [
-            [star_x, star_y + gap],
-            [star_x - oppo, star_y + gap + face],
-            [star_x - oppo, star_y + gap + face + cell],
-            [star_x, star_y + gap + face * 2 + cell],
-            [star_x + oppo, star_y + gap + face + cell],
-            [star_x + oppo, star_y + gap + face],
-        ];
-
-        // 填充横线
-        let horList = [
-            [0, 0],
-            [0, cell * 1 + face * 2 + gap * 2],
-            [0, cell * 2 + face * 4 + gap * 4],
-        ];
-
-        horList.forEach(lines => {
-            p1.push(horizontal.map(item => {
-                return [item[0] + lines[0], item[1] + lines[1]]
-            }))
+    axios.post('/pages/all').then(res => {
+        let list = document.querySelector('#list');
+        res.data.list.forEach(item => {
+            let li = document.createElement(`li`);
+            li.innerHTML = `<a href="/pages/${item}">${item}</a>`
+            list.append(li);
         })
-
-        // 填充竖线
-        let verList = [
-            [0, 0],
-            [cell + face * 2, 0],
-            [0, cell + face * 2 + gap * 2],
-            [cell + face * 2, cell + face * 2 + gap * 2],
-
-        ]
-
-        verList.forEach(lines => {
-            p1.push(vertical.map(item => {
-                return [item[0] + lines[0], item[1] + lines[1]]
-            }))
-        })
-
-
-        return p1;
-    }
-
-    // 渲染
-    function renderNumber(str) {
-        let target = str + '';
-        let {face, oppo} = hypotenuse(config.long, Math.PI / 180 * config.angle);
-        let sw = config.cell + face * 2 + oppo * 2;
-        let sh = config.cell * 2 + oppo * 2 + face * 4 + config.gap * 4;
-        let pw = oppo * 2;
-
-        if (config.star_x === 'center') {
-            config.star_x = cw / 2 - ((sw + config.interval) * target.length - config.interval) / 2;
-        }
-        if (config.star_y === 'center') {
-            config.star_y = ch / 2 - sh / 2;
-        }
-        let points = setPoints(config);
-        let numbers = [
-            [0, 2, 3, 4, 5, 6],
-            [4, 6],
-            [0, 1, 2, 4, 5],
-            [0, 1, 2, 4, 6],
-            [3, 4, 1, 6],
-            [0, 3, 1, 2, 6],
-            [0, 1, 2, 3, 5, 6],
-            [0, 4, 6],
-            [0, 1, 2, 3, 4, 5, 6],
-            [0, 1, 2, 3, 4, 6],
-        ];
-
-        for (let i = 0; i < target.length; i++) {
-            // ctx.strokeStyle = 'red';
-            // ctx.beginPath();
-            // ctx.rect(config.star_x + (sw + config.interval) * i, config.star_y, sw, sh)
-            // ctx.stroke();
-            //
-            // ctx.strokeStyle = '#000000';
-            switch (target[i]) {
-                case ':':
-                    ctx.beginPath();
-                    ctx.rect((sw + config.interval) * i + sw / 2 - pw / 2 + config.star_x, config.star_y + sh / 3 * 2, pw, pw)
-                    ctx.rect((sw + config.interval) * i + sw / 2 - pw / 2 + config.star_x, config.star_y + sh - pw - sh / 3 * 2, pw, pw)
-                    ctx.stroke();
-                    break;
-                default:
-                    let alphabet = numbers[+target[i]]
-                    for (let j = 0; j < alphabet.length; j++) {
-                        ctx.beginPath();
-                        points[alphabet[j]].forEach(point => {
-                            ctx.lineTo(point[0] + (sw + config.interval) * i, point[1]);
-                        })
-                        ctx.closePath();
-                        ctx.stroke();
-                    }
-                    break;
-            }
-        }
-    }
-
-    // 通过斜边和角度计算领边和对边
-    function hypotenuse(long, angle) {
-        return {
-            face: Math.sin(angle) * long,//邻边
-            oppo: Math.cos(angle) * long//对边
-        };
-    }
+    })
 </script>
 </body>
 <%- include('footer.html') -%>
