@@ -1,0 +1,18 @@
+<%- include('../header.html') -%>
+<style>
+    #wrap{
+        height: 500px;
+    }
+</style>
+<body>
+<div id="app">
+    <div id="wrap"></div>
+</div>
+</body>
+<script src="/javascripts/clock.js"></script>
+<script>
+    new Clock('#wrap',{
+        cell:20
+    })
+</script>
+<%- include('../footer.html') -%>
