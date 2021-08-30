@@ -1,0 +1,153 @@
+$scale: 1.3339512605042017;
+$font-primary: 14px; //正文（小）
+$font-auxiliary: 10px; //辅助文字
+$font-title: 38px; //大标题
+$font-subtitle: 12px; //小标题
+
+$border-color: #cccccc; //边颜色
+$padding-primary: 20px;
+
+@mixin flex {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-basis: auto;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+@mixin flex-left {
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+@mixin flex-right {
+    display: block;
+    flex: 1;
+    flex-basis: auto;
+}
+
+
+.page {
+    margin: 0 auto;
+    border: 1px solid $border-color;
+    box-sizing: border-box;
+    line-height: 1.5;
+    font-size: $font-primary*$scale;
+    padding: $padding-primary*$scale;
+    color: #747372;
+    @include flex;
+
+    .page-left {
+        @include flex-left;
+        width: 180px*$scale;
+        background: #E0E3E3;
+
+        .header {
+            padding-top: 85px*$scale;
+            padding-bottom: 45px*$scale;
+            background: url("/images/Image5.png") no-repeat top center;
+            background-size: 100% auto;
+
+            .avatar {
+                display: block;
+                height: 115px*$scale;
+                width: 115px*$scale;
+                margin: 0 auto;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+
+        .main {
+            padding: $padding-primary*$scale;
+
+            .title {
+                font-weight: bold;
+                color: #333333;
+            }
+
+            .item {
+                padding: 8px*$scale 0;
+                @include flex;
+
+                .key {
+                    @include flex-left;
+
+                    &.key1 {
+
+                    }
+
+                    &.key2 {
+                        width: 80px*$scale;
+                    }
+                }
+
+                .value {
+                    @include flex-right;
+                }
+            }
+        }
+
+        .interval {
+            margin: 30px*$scale 0;
+            border-top: 1px solid $border-color;
+        }
+    }
+
+    .page-right {
+        @include flex-right;
+
+        .header {
+            background: url("/images/Image45.png") no-repeat top center;
+            background-size: 100% auto;
+            padding: 111px*$scale $padding-primary*$scale 29px*$scale;
+
+            .title {
+                font-size: $font-title*$scale;
+                color: #E7B594;
+                font-weight: bold;
+            }
+
+            .introduction {
+                font-size: $font-subtitle*$scale;
+                color: #8F8E8C;
+                @include flex;
+                justify-content: space-between;
+            }
+        }
+
+        .main {
+            padding: 0 $padding-primary*$scale;
+
+            .title {
+                color: #E7B594;
+                font-weight: bold;
+                padding: 10px*$scale 0;
+                border-bottom: 1px solid $border-color;
+            }
+
+            .item {
+                .date {
+                    font-size: $font-auxiliary*$scale;
+                    color: #8F8E8C;
+                    padding-top: 10px*$scale;
+                }
+
+                .name {
+                    color: #333333;
+                    padding-bottom: 8px*$scale;
+                    padding-top: 6px*$scale;
+                }
+
+                .introduction {
+                    color: #8F8E8C;
+                }
+            }
+        }
+
+        .interval {
+            height: 34px*$scale;
+        }
+    }
+}

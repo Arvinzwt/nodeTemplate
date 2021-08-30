@@ -16,5 +16,8 @@
         "mysql": "^2.18.1",
         "nodemon": "^2.0.12",
         "puppeteer": "^10.2.0"
+    },
+    "devDependencies": {
+        "sass": "^1.38.2"
     }
 }

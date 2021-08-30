@@ -1,0 +1,120 @@
+.page {
+  margin: 0 auto;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-size: 18.6753176471px;
+  padding: 26.6790252101px;
+  color: #747372;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-basis: auto;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.page .page-left {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 240.1112268908px;
+  background: #E0E3E3;
+}
+.page .page-left .header {
+  padding-top: 113.3858571429px;
+  padding-bottom: 60.0278067227px;
+  background: url("/images/Image5.png") no-repeat top center;
+  background-size: 100% auto;
+}
+.page .page-left .header .avatar {
+  display: block;
+  height: 153.404394958px;
+  width: 153.404394958px;
+  margin: 0 auto;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.page .page-left .main {
+  padding: 26.6790252101px;
+}
+.page .page-left .main .title {
+  font-weight: bold;
+  color: #333333;
+}
+.page .page-left .main .item {
+  padding: 10.671610084px 0;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-basis: auto;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.page .page-left .main .item .key {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.page .page-left .main .item .key.key2 {
+  width: 106.7161008403px;
+}
+.page .page-left .main .item .value {
+  display: block;
+  flex: 1;
+  flex-basis: auto;
+}
+.page .page-left .interval {
+  margin: 40.0185378151px 0;
+  border-top: 1px solid #cccccc;
+}
+.page .page-right {
+  display: block;
+  flex: 1;
+  flex-basis: auto;
+}
+.page .page-right .header {
+  background: url("/images/Image45.png") no-repeat top center;
+  background-size: 100% auto;
+  padding: 148.068589916px 26.6790252101px 38.6845865546px;
+}
+.page .page-right .header .title {
+  font-size: 50.6901478992px;
+  color: #E7B594;
+  font-weight: bold;
+}
+.page .page-right .header .introduction {
+  font-size: 16.0074151261px;
+  color: #8F8E8C;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-basis: auto;
+  box-sizing: border-box;
+  min-width: 0;
+  justify-content: space-between;
+}
+.page .page-right .main {
+  padding: 0 26.6790252101px;
+}
+.page .page-right .main .title {
+  color: #E7B594;
+  font-weight: bold;
+  padding: 13.339512605px 0;
+  border-bottom: 1px solid #cccccc;
+}
+.page .page-right .main .item .date {
+  font-size: 13.339512605px;
+  color: #8F8E8C;
+  padding-top: 13.339512605px;
+}
+.page .page-right .main .item .name {
+  color: #333333;
+  padding-bottom: 10.671610084px;
+  padding-top: 8.003707563px;
+}
+.page .page-right .main .item .introduction {
+  color: #8F8E8C;
+}
+.page .page-right .interval {
+  height: 45.3543428571px;
+}
+
+/*# sourceMappingURL=resume.css.map */
